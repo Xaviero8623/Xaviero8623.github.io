@@ -33,3 +33,29 @@ gallery:
 * **Manual Plunger Positioning:** Two momentary buttons enable clockwise/counterclockwise motor control for precise plunger positioning during syringe loading without manual lead screw manipulation.
 * **Real-Time Flow Rate Adjustment:** Potentiometer control allows on-the-fly flow rate changes with live display in Arduino serial monitor.
 * **LCD Display Dashboard:** Shows current flow rate and calculated time remaining until syringe is empty for better operation monitoring.
+* **Wireless capabilities:** A remote can be used to remotely operate the Syringe-Pump
+
+# Parts Used
+
+Component                                          | Quantity | Notes
+--------------------------------------------------|----------|--------------------------------------------------------
+250 mm lead screw with 2 mm pitch and 2 mm lead   | 1        |
+250 mm lead screw with 2 mm pitch and 8 mm lead   | 1        |
+1/4" x 8mm Flexible Coupling                      | 1        | 
+200 mm linear rod with 8 mm diameter              | 2        |
+LM8UU Linear bearing for 8 mm diameter rod        | 2        | 
+2040 Aluminum Extrusion 1' Length                 | 1        |
+Nema 17 Stepper Motor                             | 1        | 
+MEAN WELL RQ-65D AC-DC Power Supply               | 1        | Quad Output: 5V, 12V, 24V, 12V @ 4 Amp
+Arduino Uno                                       | 1        | 
+A4988 Stepper Driver                              | 1        |
+Small Breadboard                                  | 1        | 
+Panel Mount Latching Push Button (On/Off)         | 1        | For start/pause function
+Panel Mount Momentary Push Button                 | 1        | Bonus feature only
+Limit Switch                                      | 1        | Stops motion when plunger reaches limit
+RGB Common Cathode LED                            | 1        | Green (running), Yellow (paused), Red (out of liquid)
+ESP32                                             | 2        | Used for Wireless Remote
+Wires, fasteners, resistors, etc.                 | As needed| 
+Heat shrink tubing                                | As needed| 
+Proper wire terminations                          | As needed| Dupont pins, fork connectors, ferrule required
+3D Printing Filament                              | As needed| 
