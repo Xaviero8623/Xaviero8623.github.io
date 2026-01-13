@@ -2,13 +2,8 @@
 title: "Syringe-Pump test"
 excerpt: "DIY Syringe-pump capable of 1 uL/min to 10 mL/min flow rate."
 header:
-  image: /assets/img/David.JPG
-  teaser: /assets/img/Large-Format-3D-Printer-Thumbnail.png
-gallery:
-  - image_path: assets/img/Slide-3.png
-  - image_path: assets/img/Slide-2.png
-  - image_path: assets/img/Slide-4.png
-   
+  image: /assets/img/actuator.JPG
+  teaser: /assets/img/actuator.JPG
 ---
 
 
@@ -137,5 +132,3 @@ Proper wire terminations                          | As needed| Dupont pins, fork
 The code for the project can be found [here](https://github.com/Xaviero8623/Syringe-Pump/tree/main).
 # Interactive Fusion Model
 <iframe src="https://vanderbilt643.autodesk360.com/shares/public/SH90d2dQT28d5b6028117f6087986883a59c?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
-
-{% include gallery caption="Large Format 3D Printer Gallery" %}
