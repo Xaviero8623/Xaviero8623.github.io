@@ -98,7 +98,7 @@ analytics:
 author:
   name             : *name # *name is a YAML reference pointing to the &anchor earlier
   avatar           : "assets/img/Xavier_Portrait.JPG"
-  bio              : "Electrical and Computer Engineering | Minors in Physics, Digital Fabrication, and Quantum Information Science and Engineering"
+  bio              : "Electrical and Computer Engineering"
   location         : "Laurel, MD"
   links:
     - label: "GitHub"
