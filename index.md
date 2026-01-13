@@ -17,11 +17,11 @@ feature_row:
     excerpt: "Custom Designed STM32 Breakout board using altium. Assembled using hot plate soldering."
   - image_path:     assets/img/ECE Day Poster(3).png
     alt: ""
-    title: "ECE Day Presentation"
-    excerpt: "Poster Presentation for radiation effects research based in establishing and improving the robustness of vital electronic and photonic semiconductor technologies for operation in harsh environments including space"
+    title: "VADL Community Outreach"
+    excerpt: "Outreach event as part of the Vanderbilt Aerospace Design Lab to attract young talent to engineering."
   - image_path:     assets/img/Motor_Controller.jpg
     title: "Independent Study Based in Electronic Speed Controller Design and Operation"
-    excerpt: "I completed an independent study in which I assembled a PCB breakout board for a dsPIC microcontroller and explored methods and tools for precise motor control. This included using encoders to determine motor speed and direction, implementing pulse-width modulation, and designing and utilizing H-bridge circuits. I developed motor drivers in MPLAB for both brushed and brushless motor control using the H-bridge circuitry, and implemented a PID controller to achieve precise servo control of a brushed motor. Additionally, I used MATLAB and Simulink to analyze motor performance data and debug the motor control drivers. "
+    excerpt: "I completed an independent study in which I assembled a PCB breakout board for a dsPIC microcontroller and explored methods and tools for precise motor control."
 ---
 
 {% include feature_row %}
