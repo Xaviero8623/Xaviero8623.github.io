@@ -9,6 +9,7 @@ Xavie is a motivated self-starter and learner with a passion for electrical and 
 
 * Vanderbilt University
   * BE Electrical and Computer Engineering
+---
 ## Work Experience
 
 **Electrical Engineering Intern**
