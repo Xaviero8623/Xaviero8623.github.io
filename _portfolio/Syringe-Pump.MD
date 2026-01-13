@@ -61,4 +61,4 @@ Proper wire terminations                          | As needed| Dupont pins, fork
 3D Printing Filament                              | As needed| 
 
 # Arduino Code
-The code for the project can be found [here]
+The code for the project can be found [here](https://github.com/Xaviero8623/Syringe-Pump/tree/main).
