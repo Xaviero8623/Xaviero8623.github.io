@@ -1,5 +1,5 @@
 ---
-title: "Syringe-Pump"
+title: "Syringe-Pump test"
 excerpt: "DIY Syringe-pump capable of 1 uL/min to 10 mL/min flow rate."
 header:
   image: /assets/img/LF3DP-Banner-2.jpg
