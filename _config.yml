@@ -13,9 +13,9 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 locale                   : "en-US"
 title                    : "Xavier Onwu"
 title_separator          : "-"
-subtitle                 : "Electrical & Computer Engineering, Physics, Quantum Information Science & Engineering, Digital Fabrications"
+subtitle                 : "Electrical and Computer Engineering | Minors in Physics, Digital Fabrication, and Quantum Information Science and Engineering"
 name                     : &name "Xavier Onwu" # &name is a YAML anchor which can be *referenced later
-description              : &description "Electrical & Computer Engineering, Physics, Quantum Information Science & Engineering, Digital Fabrications"
+description              : &description "Electrical and Computer Engineering | Minors in Physics, Digital Fabrication, and Quantum Information Science and Engineering"
 url                      : https://Xaviero8623.github.io/ # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : 
