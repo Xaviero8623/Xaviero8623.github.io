@@ -7,9 +7,9 @@ title: "About Xavier Onwu"
 ## Education
 Xavier is a motivated self-starter and learner with a passion for electrical and computer engineering. 
 
-* Vanderbilt University
-  * BE Electrical and Computer Engineering
----
+Vanderbilt University
+ * BE Electrical and Computer Engineering
+
 ## Work Experience
 
 **Electrical Engineering Intern**  
