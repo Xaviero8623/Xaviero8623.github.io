@@ -15,7 +15,7 @@ feature_row:
     alt: "CNC Mill"
     title: "Custom Breakout Board for STM32 MCU"
     excerpt: "Custom Designed STM32 Breakout board using altium. Assembled using hot plate soldering."
-  - image_path:     assets/img/ECE Day Poster(3).png
+  - image_path:         assets/img/Community.jpg
     alt: ""
     title: "VADL Community Outreach"
     excerpt: "Outreach event as part of the Vanderbilt Aerospace Design Lab to attract young talent to engineering."
