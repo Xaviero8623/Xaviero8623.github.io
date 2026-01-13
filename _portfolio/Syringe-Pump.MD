@@ -35,6 +35,84 @@ gallery:
 * **LCD Display Dashboard:** Shows current flow rate and calculated time remaining until syringe is empty for better operation monitoring.
 * **Wireless capabilities:** A remote can be used to remotely operate the Syringe-Pump
 
+## Operating Instructions
+
+**Setup and Loading:**
+1. Ensure the syringe pump is unplugged before setup
+2. Select appropriate syringe size (10 mL or 20 mL) and fill with desired fluid
+3. Adjust syringe holder to accommodate syringe diameter (tool-free adjustment)
+4. Insert syringe into holder, ensuring both ends are fully supported
+5. Use manual positioning buttons (forward/reverse) to move plunger holder into position against syringe plunger
+6. Press and hold forward button to advance plunger holder or reverse button to retract
+7. Release button when plunger holder is properly positioned
+8. Verify limit switch is properly positioned to detect end of stroke
+
+**Setting Flow Rate:**
+1. Turn potentiometer knob to desired flow rate setting (0.1 to 5.0 mL/min)
+2. Current flow rate will be displayed on LCD screen
+3. LCD also displays estimated time remaining until syringe is empty
+4. Flow rate can be adjusted at any time during operation
+
+**Power-Up and Operation:**
+1. Plug power supply into wall outlet (110V AC)
+2. Verify LED illuminates (should be yellow indicating paused state)
+3. LCD will display current flow rate setting and time remaining
+4. Press latching start/stop button on control panel or wireless remote to begin pumping
+5. LED will turn green, indicating pump is running
+6. Monitor fluid delivery, LCD display, and LED status during operation
+
+**Pausing Operation:**
+1. Press latching start/stop button on control panel or wireless remote to pause
+2. LED will turn yellow, indicating paused state
+3. LCD continues to display flow rate and remaining time
+4. Press button again to resume operation
+
+**Manual Positioning (When Paused):**
+1. Ensure pump is in paused state (yellow LED)
+2. Press and hold forward button to advance plunger/carriage
+3. Press and hold reverse button to retract plunger/carriage
+4. Use for fine positioning adjustments or resetting carriage position
+5. Release button to stop manual movement
+
+**Adjusting Flow Rate During Operation:**
+1. Turn potentiometer knob while pump is running or paused
+2. LCD will update in real-time to show new flow rate
+3. Time remaining calculation automatically adjusts based on new flow rate
+4. No need to stop pump to change flow rate
+
+**End of Operation:**
+1. When syringe is depleted, limit switch will automatically stop motor
+2. LED will turn red, indicating syringe is empty
+3. LCD displays final status
+4. Press latching start/stop button to reset system to paused state (yellow LED)
+5. Use reverse button to retract carriage for syringe removal
+6. Unplug power supply from wall outlet
+
+**Changing Syringes:**
+1. Ensure pump is stopped and unplugged
+2. Use reverse button to retract plunger holder if needed
+3. Remove empty syringe from holder
+4. Load new filled syringe following setup instructions above
+5. Use forward/reverse buttons to position plunger holder
+6. Adjust flow rate using potentiometer as needed
+7. Resume operation following power-up instructions
+
+**Shutdown:**
+1. Press latching start/stop button to stop pumping
+2. Unplug power supply from wall outlet
+3. Remove syringe if not planning immediate reuse
+4. Store pump in clean, dry location
+
+**Safety Reminders:**
+- Always unplug before making any adjustments to wiring or electronics
+- Keep work area clean and free from liquids
+- Do not touch motor during operation (can reach 80°C)
+- If you smell smoke or feel wires heating, immediately unplug and diagnose issue
+- Never bypass limit switch or safety features
+- Do not hold forward/reverse buttons when at travel limits
+
+---
+
 # Parts Used
 
 Component                                          | Quantity | Notes
