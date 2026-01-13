@@ -1,5 +1,5 @@
 ---
-title: "Syringe-Pump test"
+title: "Syringe-Pump"
 excerpt: "DIY Syringe-pump capable of 1 uL/min to 10 mL/min flow rate."
 header:
   image: assets/img/actuator.jpg
