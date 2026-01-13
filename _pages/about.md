@@ -32,8 +32,22 @@ Maneuver Support Vessel Light (MSVL):
   enhance understanding of radar system radiation patterns
 
 ---
+Research Intern
+
+Vanderbilt Institute for Space and Defense Electronics | Nashville, TN
+
+Jan 2025 - Present | Part-Time
+
+- Test and characterize radiation effects on integrated circuits for space applications with 
+  focus on single event effects (SEE) and total ionizing dose (TID)
+- Contribute to development of advanced modeling software to simulate radiation effects on 
+  semiconductors for space applications
+
+---
 Teaching Assistant
+
 Vanderbilt University | Nashville, TN, USA
+
 Jan 2025 - Present | Part-Time
 
 Digital Systems (ECE 2123/ECE 2123L) ~ Jan '25 - May '25:
@@ -45,19 +59,10 @@ Circuits I (ECE 2112) ~ Aug '25 - Dec '25:
 
 ---
 
-Research Intern
-Vanderbilt Institute for Space and Defense Electronics | Nashville, TN, USA
-Jan 2025 - Present | Part-Time
-
-- Test and characterize radiation effects on integrated circuits for space applications with 
-  focus on single event effects (SEE) and total ionizing dose (TID)
-- Contribute to development of advanced modeling software to simulate radiation effects on 
-  semiconductors for space applications
-
----
-
 Electrical Engineering Intern
+
 National Institutes of Health | Bethesda, MD, USA
+
 Jun 2024 - Aug 2024 | Full-Time
 
 - Optimized essential components of home-based wearable biosensor for monitoring vitals of 
@@ -69,6 +74,7 @@ Jun 2024 - Aug 2024 | Full-Time
   and Light Sensor control systems, successfully confirming viability of both systems
 - Developed code outline to eliminate noise and irrelevant frequencies to enable accurate 
   interpretation and filtering of data collected by wearable biosensor
+  ---
   
 ## Technical Skills
   *  python
