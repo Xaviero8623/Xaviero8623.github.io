@@ -5,16 +5,16 @@ title: "About Xavier Onwu"
 ---
 
 ## Education
-Xavie is a motivated self-starter and learner with a passion for electrical and computer engineering. 
+Xavier is a motivated self-starter and learner with a passion for electrical and computer engineering. 
 
 * Vanderbilt University
   * BE Electrical and Computer Engineering
 ---
 ## Work Experience
 
-**Electrical Engineering Intern**
+**Electrical Engineering Intern | Northrop Grumman**
 
-Northrop Grumman | Ocean Springs, MS
+Ocean Springs, MS
 
 Jun 2025 - Aug 2025 | Full-Time
 
