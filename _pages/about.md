@@ -28,7 +28,7 @@ Jun 2025 - Aug 2025 | Full-Time
 ---
 
 **Research Intern**  
-Vanderbilt Institute for Space and Defense Electronics | Nashville,TN  
+Vanderbilt Institute for Space and Defense Electronics | Nashville, TN  
 Jan 2025 - Present | Part-Time
 
 - Test and characterize radiation effects on integrated circuits for space applications with focus on single event effects (SEE) and total ionizing dose (TID)
