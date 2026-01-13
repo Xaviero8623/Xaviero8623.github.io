@@ -1,10 +1,9 @@
 ---
 
 title: "About Xavier Onwu"
-
-Xavier is a motivated self-starter and learner with a passion for electrical and computer engineering. 
 ---
 
+Xavier is a motivated self-starter and learner with a passion for electrical and computer engineering. 
 ## Education
 
 Vanderbilt University
