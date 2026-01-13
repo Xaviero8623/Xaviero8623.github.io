@@ -62,3 +62,4 @@ Proper wire terminations                          | As needed| Dupont pins, fork
 
 # Arduino Code
 The code for the project can be found [here](https://github.com/Xaviero8623/Syringe-Pump/tree/main).
+# Interactive Fusion Model
