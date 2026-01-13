@@ -11,6 +11,26 @@ Xavie is a motivated self-starter and learner with a passion for electrical and 
   * BE Electrical and Computer Engineering
 ## Work Experience
 
+**Electrical Engineering Intern**
+
+Northrop Grumman | Ocean Springs, MS
+
+Jun 2025 - Aug 2025 | Full-Time
+
+Offshore Patrol Cutter:
+- Debugged, tested, and developed comprehensive testing procedures for serial interfaces on 
+  shipboard network devices, ensuring compliance with DoD Instruction 8310.01 and 8510.01
+- Configured, stood-up, and maintained secure host baseline (SHB)-compliant deployment server
+- Ensured adherence to DoD Security Technical Implementation Guides while managing end-to-end 
+  lifecycle of SHB server images
+
+Maneuver Support Vessel Light (MSVL):
+- Conducted in-depth examination of modeling and simulation of topside electromagnetic 
+  environment for naval vessels
+- Reviewed MSVL comprehensive assessment reports on electromagnetic environmental effects to 
+  enhance understanding of radar system radiation patterns
+
+---
 Teaching Assistant
 Vanderbilt University | Nashville, TN, USA
 Jan 2025 - Present | Part-Time
@@ -32,25 +52,6 @@ Jan 2025 - Present | Part-Time
   focus on single event effects (SEE) and total ionizing dose (TID)
 - Contribute to development of advanced modeling software to simulate radiation effects on 
   semiconductors for space applications
-
----
-
-Electrical Engineering Intern
-Northrop Grumman | Ocean Springs, MS, USA
-Jun 2025 - Aug 2025 | Full-Time
-
-Offshore Patrol Cutter:
-- Debugged, tested, and developed comprehensive testing procedures for serial interfaces on 
-  shipboard network devices, ensuring compliance with DoD Instruction 8310.01 and 8510.01
-- Configured, stood-up, and maintained secure host baseline (SHB)-compliant deployment server
-- Ensured adherence to DoD Security Technical Implementation Guides while managing end-to-end 
-  lifecycle of SHB server images
-
-Maneuver Support Vessel Light (MSVL):
-- Conducted in-depth examination of modeling and simulation of topside electromagnetic 
-  environment for naval vessels
-- Reviewed MSVL comprehensive assessment reports on electromagnetic environmental effects to 
-  enhance understanding of radar system radiation patterns
 
 ---
 
