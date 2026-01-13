@@ -2,18 +2,13 @@
 title: "Syringe-Pump"
 excerpt: "DIY Syringe-pump capable of 1 uL/min to 10 mL/min flow rate."
 header:
-  image:         /assets/img/Linear_Actuator_Assembly_2024-Oct-03_12-06-30PM-000_CustomizedView40337851705_jpg.jpg
-  teaser:        /assets/img/Linear_Actuator_Assembly_2024-Oct-03_12-06-30PM-000_CustomizedView40337851705_jpg.jpg
+  image: /assets/img/LF3DP-Banner-2.jpg
+  teaser: /assets/img/Large-Format-3D-Printer-Thumbnail.png
 gallery:
-  - url: /assets/img/Cyber-Scooter-1.jpg
-    image_path: assets/img/Cyber-Scooter-1.jpg
-    alt: "placeholder image 1"
-  - url: /assets/img/Cyber-Scooter-2.jpg
-    image_path: assets/img/Cyber-Scooter-2.jpg
-    alt: "placeholder image 2"
-  - url: /assets/img/Cyber-Scooter-3.jpg
-    image_path: assets/img/Cyber-Scooter-3.jpg
-    alt: "placeholder image 3"
+  - image_path: assets/img/Slide-3.png
+  - image_path: assets/img/Slide-2.png
+  - image_path: assets/img/Slide-4.png
+   
 ---
 
 
