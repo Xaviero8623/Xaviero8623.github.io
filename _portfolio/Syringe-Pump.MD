@@ -2,8 +2,13 @@
 title: "Syringe-Pump"
 excerpt: "DIY Syringe-pump capable of 1 uL/min to 10 mL/min flow rate."
 header:
-  image: assets/img/actuator.jpg
-  teaser: assets/img/actuator.jpg
+  image: assets/img/Real_Life_Full.png
+  teaser: assets/img/Real_Life_Full.png
+gallery:
+  - image_path: assets/img/3d_Full.png
+  - image_path: assets/img/Circuit.png
+  - image_path: assets/img/Real_Life_Remote.png
+   
 ---
 
 
