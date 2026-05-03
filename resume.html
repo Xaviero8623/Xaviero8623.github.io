@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume — Alex Morgan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111113;
+    --border: #1e1e22;
+    --accent: #c8a96e;
+    --accent-dim: #8a7149;
+    --text: #e8e3d8;
+    --muted: #6b6660;
+    --faint: #1a1a1e;
+    --tag-bg: #16161a;
+    --mono: 'DM Mono', monospace;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Noise overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.6;
+  }
+
+  /* Layout */
+  .wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Header */
+  header {
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+  }
+
+  .header-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.1s forwards;
+  }
+
+  .header-name {
+    font-size: clamp(3.5rem, 9vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .header-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .header-title {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.35s forwards;
+  }
+
+  .header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  .meta-item a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .meta-item a:hover { color: var(--accent); }
+
+  .meta-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* Sections */
+  section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  section:nth-child(2) { animation-delay: 0.5s; }
+  section:nth-child(3) { animation-delay: 0.65s; }
+  section:nth-child(4) { animation-delay: 0.8s; }
+  section:nth-child(5) { animation-delay: 0.95s; }
+  section:nth-child(6) { animation-delay: 1.1s; }
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Experience */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.25rem 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--faint);
+  }
+
+  .exp-item:first-of-type { padding-top: 0; }
+  .exp-item:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+  .exp-role {
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+    grid-column: 1;
+  }
+
+  .exp-company {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-style: italic;
+    grid-column: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .exp-period {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    text-align: right;
+    padding-top: 0.2rem;
+    white-space: nowrap;
+  }
+
+  .exp-desc {
+    font-size: 0.93rem;
+    color: var(--muted);
+    line-height: 1.8;
+    grid-column: 1 / -1;
+    max-width: 580px;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    grid-column: 1 / -1;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    padding: 0.2em 0.65em;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .tag:hover {
+    color: var(--accent);
+    border-color: var(--accent-dim);
+  }
+
+  /* Education */
+  .edu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.2rem 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--faint);
+  }
+
+  .edu-item:first-of-type { padding-top: 0; }
+  .edu-item:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+  .edu-degree {
+    font-size: 1.15rem;
+    color: var(--text);
+  }
+
+  .edu-school {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .edu-year {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    grid-row: 1 / 3;
+    grid-column: 2;
+    text-align: right;
+    padding-top: 0.2rem;
+  }
+
+  /* Skills grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .skill-group {
+    background: var(--bg);
+    padding: 1.5rem;
+    transition: background 0.2s;
+  }
+
+  .skill-group:hover { background: var(--faint); }
+
+  .skill-group-name {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 0.9rem;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .skill-list li {
+    font-size: 0.88rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-list li::before {
+    content: '—';
+    color: var(--accent);
+    font-size: 0.7rem;
+  }
+
+  /* About */
+  .about-text {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.85;
+    max-width: 620px;
+  }
+
+  .about-text strong {
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  /* Projects */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .project-card {
+    background: var(--bg);
+    padding: 1.75rem;
+    transition: background 0.25s;
+    position: relative;
+  }
+
+  .project-card:hover { background: var(--faint); }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px; height: 0;
+    background: var(--accent);
+    transition: height 0.3s ease;
+  }
+
+  .project-card:hover::before { height: 100%; }
+
+  .project-name {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .project-link {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--accent-dim);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+
+  .project-link:hover { color: var(--accent); }
+
+  /* Footer */
+  footer {
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .footer-text {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Modal */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-backdrop.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal {
+    background: #111113;
+    border: 1px solid var(--border);
+    max-width: 560px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+
+  .modal-backdrop.open .modal {
+    transform: translateY(0);
+  }
+
+  .modal::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+  }
+
+  .modal-header {
+    padding: 2rem 2rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .modal-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--accent-dim);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+  }
+
+  .modal-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .modal-subtitle {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    width: 32px; height: 32px;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .modal-close:hover {
+    border-color: var(--accent-dim);
+    color: var(--accent);
+  }
+
+  .modal-body {
+    padding: 1.75rem 2rem;
+  }
+
+  .modal-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 1.75rem;
+  }
+
+  .modal-stat {
+    background: var(--bg);
+    padding: 1.1rem;
+    text-align: center;
+  }
+
+  .modal-stat-value {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .modal-stat-label {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .modal-section-title {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 0.9rem;
+  }
+
+  .modal-text {
+    font-size: 0.93rem;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .modal-text + .modal-section-title {
+    margin-top: 1.75rem;
+  }
+
+  .modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .modal-footer {
+    padding: 1.25rem 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-cta {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--bg);
+    background: var(--accent);
+    border: none;
+    padding: 0.55em 1.2em;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+
+  .modal-cta:hover { background: var(--accent-dim); }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .exp-item, .edu-item {
+      grid-template-columns: 1fr;
+    }
+    .exp-period, .edu-year {
+      grid-column: 1;
+      grid-row: auto;
+      text-align: left;
+      margin-bottom: 0.5rem;
+    }
+    .header-meta { gap: 1rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <header>
+    <div class="header-eyebrow">Portfolio · Résumé · 2026</div>
+    <h1 class="header-name">Alex <em>Morgan</em></h1>
+    <div class="header-title">Senior Product Designer &amp; Creative Technologist</div>
+    <div class="header-meta">
+      <div class="meta-item"><span class="meta-dot"></span> Nashville, TN</div>
+      <div class="meta-item"><span class="meta-dot"></span> <a href="mailto:alex@morgan.design">alex@morgan.design</a></div>
+      <div class="meta-item"><span class="meta-dot"></span> <a href="#">morgan.design</a></div>
+      <div class="meta-item"><span class="meta-dot"></span> <a href="#">linkedin.com/in/alexmorgan</a></div>
+      <div class="meta-item"><span class="meta-dot"></span> <a href="#">github.com/alexmorgan</a></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-label">About</div>
+    <p class="about-text">
+      Designer and builder with <strong>9 years</strong> crafting digital products at the intersection of systems thinking and visual craft.
+      I lead with curiosity — obsessing over the space between a user's intention and the moment it becomes effortless.
+      Comfortable moving between <strong>Figma and a code editor</strong>, from brand identity work to shipping production interfaces.
+      Previously at Stripe, Airbnb, and a handful of startups that no longer exist.
+    </p>
+  </section>
+
+  <section>
+    <div class="section-label">Experience</div>
+
+    <div class="exp-item">
+      <div class="exp-role">Principal Product Designer</div>
+      <div class="exp-period">2023 — Present</div>
+      <div class="exp-company">Meridian Labs · San Francisco, CA</div>
+      <p class="exp-desc">
+        Led design for a B2B SaaS platform serving 40k+ teams. Rebuilt the design system from scratch, cutting inconsistencies by 70% and accelerating feature delivery. Partnered directly with CPO and engineering leads to define a three-year product vision.
+      </p>
+      <div class="exp-tags">
+        <span class="tag">Design Systems</span>
+        <span class="tag">Figma</span>
+        <span class="tag">React</span>
+        <span class="tag">User Research</span>
+        <span class="tag">Prototyping</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-role">Senior Designer, Growth</div>
+      <div class="exp-period">2020 — 2023</div>
+      <div class="exp-company">Stripe · Remote</div>
+      <p class="exp-desc">
+        Owned onboarding and activation flows for Stripe's global merchant base. A/B tested 30+ experiments resulting in a 22% lift in 7-day activation. Collaborated with data science to instrument and interpret conversion metrics.
+      </p>
+      <div class="exp-tags">
+        <span class="tag">Growth Design</span>
+        <span class="tag">A/B Testing</span>
+        <span class="tag">Data Analysis</span>
+        <span class="tag">Motion Design</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-role">Product Designer</div>
+      <div class="exp-period">2017 — 2020</div>
+      <div class="exp-company">Airbnb · San Francisco, CA</div>
+      <p class="exp-desc">
+        Contributed to the Host product team, improving listing creation and performance dashboards. Facilitated dozens of design sprints and shipped features used by 4M+ hosts worldwide.
+      </p>
+      <div class="exp-tags">
+        <span class="tag">Product Thinking</span>
+        <span class="tag">Service Design</span>
+        <span class="tag">Design Sprints</span>
+        <span class="tag">Accessibility</span>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="section-label">Selected Projects</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-name">Meridian Design System</div>
+        <p class="project-desc">500+ component library with full dark/light theming, accessibility baked in, and Storybook documentation.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('meridian')">VIEW CASE STUDY →</button>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Onboard · Stripe</div>
+        <p class="project-desc">Redesigned merchant onboarding reducing time-to-first-transaction from 4.2 to 1.8 days on average.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('stripe')">VIEW CASE STUDY →</button>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Carta — Open Source</div>
+        <p class="project-desc">A minimal, typographically-driven portfolio template. 1.4k GitHub stars and counting.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('carta')">GITHUB →</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-name">Design</div>
+        <ul class="skill-list">
+          <li>Figma</li>
+          <li>Framer</li>
+          <li>After Effects</li>
+          <li>Illustrator</li>
+          <li>Principle</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Frontend</div>
+        <ul class="skill-list">
+          <li>React / Next.js</li>
+          <li>TypeScript</li>
+          <li>CSS / Tailwind</li>
+          <li>Framer Motion</li>
+          <li>Storybook</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Research</div>
+        <ul class="skill-list">
+          <li>Usability Testing</li>
+          <li>Interviews</li>
+          <li>Survey Design</li>
+          <li>Analytics</li>
+          <li>A/B Testing</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Leadership</div>
+        <ul class="skill-list">
+          <li>Design Sprints</li>
+          <li>Mentorship</li>
+          <li>Critiques</li>
+          <li>Hiring</li>
+          <li>Roadmapping</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Education</div>
+
+    <div class="edu-item">
+      <div class="edu-degree">MFA, Interaction Design</div>
+      <div class="edu-year">2017</div>
+      <div class="edu-school">California College of the Arts</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-degree">BA, Visual Communication</div>
+      <div class="edu-year">2015</div>
+      <div class="edu-school">University of Michigan, Ann Arbor</div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p class="footer-text">Alex Morgan · Nashville, TN · Available for select projects · alex@morgan.design</p>
+  </footer>
+
+</div>
+<!-- Modal backdrop -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-eyebrow" id="modal-eyebrow"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-subtitle" id="modal-subtitle"></div>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer" id="modal-footer">
+      <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="closeModal()">CLOSE ✕</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const projects = {
+    meridian: {
+      eyebrow: 'Case Study · Meridian Labs · 2023–Present',
+      title: 'Meridian <em>Design System</em>',
+      subtitle: 'Building the single source of truth for a 40k-team platform',
+      stats: [
+        { value: '70%', label: 'Fewer UI bugs' },
+        { value: '500+', label: 'Components' },
+        { value: '12', label: 'Teams served' },
+      ],
+      sections: [
+        {
+          heading: 'The Problem',
+          text: 'Meridian had grown fast. Twelve product teams, each shipping their own buttons, modals, and form patterns. The result: a product that looked different depending on which screen you were on, and engineers rebuilding the same components from scratch every sprint.'
+        },
+        {
+          heading: 'My Approach',
+          text: 'I started with a full component audit — cataloguing 800+ UI elements across the product and grouping them by function and visual pattern. From there I proposed a tiered system: a foundation layer (color, typography, spacing tokens), a core component library, and a set of composition patterns for common page layouts.'
+        },
+        {
+          heading: 'The Outcome',
+          text: 'Six months after launch, UI-related bug reports dropped 70%. Designer-to-developer handoff time halved. New features that previously took two weeks to scaffold now ship in three days. The system is now the most-starred internal repo at Meridian.'
+        },
+      ],
+      tags: ['Design Systems', 'Figma', 'React', 'Storybook', 'Tokens', 'Accessibility'],
+      page: 'meridian.html',
+    },
+    stripe: {
+      eyebrow: 'Case Study · Stripe · 2020–2023',
+      title: 'Onboard <em>· Stripe</em>',
+      subtitle: 'Cutting time-to-first-transaction from 4.2 to 1.8 days',
+      stats: [
+        { value: '22%', label: 'Activation lift' },
+        { value: '30+', label: 'Experiments run' },
+        { value: '1.8d', label: 'Avg. onboard time' },
+      ],
+      sections: [
+        {
+          heading: 'The Problem',
+          text: 'New merchants were dropping off during onboarding at a rate that was costing Stripe millions in lost GMV each month. The existing flow was built for compliance, not for humans — dense forms, no progress feedback, and a confusing jump between Stripe\'s dashboard and the API docs.'
+        },
+        {
+          heading: 'My Approach',
+          text: 'I ran a four-week discovery sprint: moderated sessions with 18 new merchants across three business types, instrumented funnel analysis, and a competitive teardown of 11 other payment onboarding flows. The clearest insight: merchants didn\'t want to "complete onboarding" — they wanted to see money move. We redesigned around that goal.'
+        },
+        {
+          heading: 'The Outcome',
+          text: 'A progressive disclosure model that surfaces only what\'s needed at each step, with a live test-payment sandbox reachable in under 3 minutes. 7-day activation rates rose 22% in the first cohort. The new flow became the global default within two quarters.'
+        },
+      ],
+      tags: ['Growth Design', 'A/B Testing', 'User Research', 'Data Analysis', 'Motion Design'],
+      page: 'stripe.html',
+    },
+    carta: {
+      eyebrow: 'Open Source · 2022',
+      title: 'Carta <em>Template</em>',
+      subtitle: 'A typographically-driven portfolio template for designers',
+      stats: [
+        { value: '1.4k', label: 'GitHub stars' },
+        { value: '340+', label: 'Forks' },
+        { value: 'MIT', label: 'License' },
+      ],
+      sections: [
+        {
+          heading: 'The Project',
+          text: 'Carta started as my own portfolio site, stripped down and open-sourced after several designer friends asked for the code. The premise: most portfolio templates are either over-engineered React apps or lifeless WordPress themes. Carta is a single HTML file with zero dependencies.'
+        },
+        {
+          heading: 'Design Decisions',
+          text: 'Cormorant Garamond for display type — an editorial choice that signals craft without trying too hard. DM Mono for metadata and labels. A strict two-column grid that breaks deliberately at large scale for the name. The dark palette came later, after the community overwhelmingly preferred it in a poll.'
+        },
+        {
+          heading: 'Community',
+          text: 'What started as a side project now has 340+ forks and a small community contributing translations, color themes, and CMS integrations. The most popular fork adds a Notion-powered blog with zero build step.'
+        },
+      ],
+      tags: ['HTML / CSS', 'Typography', 'Open Source', 'Portfolio Design'],
+      page: 'carta.html',
+    },
+  };
+
+  function openModal(key) {
+    const p = projects[key];
+    document.getElementById('modal-eyebrow').textContent = p.eyebrow;
+    document.getElementById('modal-title').innerHTML = p.title;
+    document.getElementById('modal-subtitle').textContent = p.subtitle;
+
+    let statsHtml = '<div class="modal-stats">';
+    p.stats.forEach(s => {
+      statsHtml += `<div class="modal-stat"><div class="modal-stat-value">${s.value}</div><div class="modal-stat-label">${s.label}</div></div>`;
+    });
+    statsHtml += '</div>';
+
+    let sectionsHtml = '';
+    p.sections.forEach(s => {
+      sectionsHtml += `<div class="modal-section-title">${s.heading}</div><p class="modal-text">${s.text}</p>`;
+    });
+
+    let tagsHtml = '<div class="modal-section-title">Tools &amp; Methods</div><div class="modal-tags">';
+    p.tags.forEach(t => { tagsHtml += `<span class="tag">${t}</span>`; });
+    tagsHtml += '</div>';
+
+    document.getElementById('modal-body').innerHTML = statsHtml + sectionsHtml + tagsHtml;
+
+    const footer = document.getElementById('modal-footer');
+    footer.innerHTML = `
+      <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="closeModal()">CLOSE ✕</button>
+      ${p.page ? `<a href="${p.page}" class="modal-cta">READ FULL CASE STUDY →</a>` : ''}
+    `;
+
+    const backdrop = document.getElementById('modal-backdrop');
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleBackdropClick(e) {
+    if (e.target === document.getElementById('modal-backdrop')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
