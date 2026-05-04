@@ -44,13 +44,8 @@
     opacity: 0.6;
   }
 
-  .wrapper {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
+  .wrapper { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
 
-  /* Header */
   header {
     padding: 5rem 0 4rem;
     border-bottom: 1px solid var(--border);
@@ -66,78 +61,17 @@
     background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
   }
 
-  .header-eyebrow {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.7s ease 0.1s forwards;
-  }
-
-  .header-name {
-    font-size: clamp(3.5rem, 9vw, 6.5rem);
-    font-weight: 300;
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin-bottom: 0.3rem;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.2s forwards;
-  }
-
-  .header-name em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .header-title {
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    margin-bottom: 2.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.35s forwards;
-  }
-
-  .header-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem 2.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.5s forwards;
-  }
-
-  .meta-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--muted);
-  }
-
+  .header-eyebrow { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.25em; color: var(--accent); text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.7s ease 0.1s forwards; }
+  .header-name { font-size: clamp(3.5rem, 9vw, 6.5rem); font-weight: 300; line-height: 1.0; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.3rem; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+  .header-name em { font-style: italic; color: var(--accent); }
+  .header-title { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s ease 0.35s forwards; }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards; }
+  .meta-item { display: flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
   .meta-item a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .meta-item a:hover { color: var(--accent); }
+  .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
-  .meta-dot {
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
-
-  /* Sections */
-  section {
-    padding: 3.5rem 0;
-    border-bottom: 1px solid var(--border);
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
-  }
-
+  section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); opacity: 0; animation: fadeUp 0.8s ease forwards; }
   section:nth-child(2) { animation-delay: 0.5s; }
   section:nth-child(3) { animation-delay: 0.65s; }
   section:nth-child(4) { animation-delay: 0.8s; }
@@ -146,447 +80,92 @@
   section:nth-child(7) { animation-delay: 1.25s; }
   section:last-child { border-bottom: none; }
 
-  .section-label {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--accent-dim);
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
+  .section-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* Experience */
-  .exp-item {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.25rem 2rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--faint);
-  }
-
+  .exp-item { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 2rem; padding: 2rem 0; border-bottom: 1px solid var(--faint); }
   .exp-item:first-of-type { padding-top: 0; }
   .exp-item:last-of-type { border-bottom: none; padding-bottom: 0; }
+  .exp-role { font-size: 1.35rem; font-weight: 400; color: var(--text); line-height: 1.2; grid-column: 1; }
+  .exp-company { font-size: 0.85rem; color: var(--accent); font-style: italic; grid-column: 1; margin-bottom: 0.75rem; }
+  .exp-period { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.08em; grid-column: 2; grid-row: 1 / 3; text-align: right; padding-top: 0.2rem; white-space: nowrap; }
 
-  .exp-role {
-    font-size: 1.35rem;
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.2;
-    grid-column: 1;
-  }
+  .exp-bullets { font-size: 0.93rem; color: var(--muted); line-height: 1.8; grid-column: 1 / -1; max-width: 620px; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .exp-bullets li { display: flex; gap: 0.75rem; align-items: flex-start; }
+  .exp-bullets li::before { content: '—'; color: var(--accent); font-size: 0.7rem; flex-shrink: 0; margin-top: 0.3rem; }
 
-  .exp-company {
-    font-size: 0.85rem;
-    color: var(--accent);
-    font-style: italic;
-    grid-column: 1;
-    margin-bottom: 0.75rem;
-  }
+  .exp-sub-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-dim); grid-column: 1 / -1; margin-top: 0.75rem; margin-bottom: 0.25rem; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; grid-column: 1 / -1; }
 
-  .exp-period {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    grid-column: 2;
-    grid-row: 1 / 3;
-    text-align: right;
-    padding-top: 0.2rem;
-    white-space: nowrap;
-  }
-
-  .exp-desc {
-    font-size: 0.93rem;
-    color: var(--muted);
-    line-height: 1.8;
-    grid-column: 1 / -1;
-    max-width: 580px;
-  }
-
-  .exp-bullets {
-    font-size: 0.93rem;
-    color: var(--muted);
-    line-height: 1.8;
-    grid-column: 1 / -1;
-    max-width: 620px;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .exp-bullets li {
-    display: flex;
-    gap: 0.75rem;
-    align-items: flex-start;
-  }
-
-  .exp-bullets li::before {
-    content: '—';
-    color: var(--accent);
-    font-size: 0.7rem;
-    flex-shrink: 0;
-    margin-top: 0.3rem;
-  }
-
-  .exp-sub-label {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent-dim);
-    grid-column: 1 / -1;
-    margin-top: 0.75rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .exp-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 1rem;
-    grid-column: 1 / -1;
-  }
-
-  .tag {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    background: var(--tag-bg);
-    border: 1px solid var(--border);
-    padding: 0.2em 0.65em;
-    border-radius: 2px;
-    transition: all 0.2s;
-  }
-
+  .tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; color: var(--muted); background: var(--tag-bg); border: 1px solid var(--border); padding: 0.2em 0.65em; border-radius: 2px; transition: all 0.2s; }
   .tag:hover { color: var(--accent); border-color: var(--accent-dim); }
 
-  /* Education */
-  .edu-item {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.2rem 2rem;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--faint);
-  }
-
+  .edu-item { display: grid; grid-template-columns: 1fr auto; gap: 0.2rem 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--faint); }
   .edu-item:first-of-type { padding-top: 0; }
   .edu-item:last-of-type { border-bottom: none; padding-bottom: 0; }
-
   .edu-degree { font-size: 1.15rem; color: var(--text); }
+  .edu-school { font-size: 0.85rem; color: var(--accent); font-style: italic; }
+  .edu-year { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); grid-row: 1 / 3; grid-column: 2; text-align: right; padding-top: 0.2rem; }
 
-  .edu-school {
-    font-size: 0.85rem;
-    color: var(--accent);
-    font-style: italic;
-  }
-
-  .edu-year {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--muted);
-    grid-row: 1 / 3;
-    grid-column: 2;
-    text-align: right;
-    padding-top: 0.2rem;
-  }
-
-  /* Skills grid */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .skill-group {
-    background: var(--bg);
-    padding: 1.5rem;
-    transition: background 0.2s;
-  }
-
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .skill-group { background: var(--bg); padding: 1.5rem; transition: background 0.2s; }
   .skill-group:hover { background: var(--faint); }
+  .skill-group-name { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 0.9rem; }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+  .skill-list li { font-size: 0.88rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+  .skill-list li::before { content: '—'; color: var(--accent); font-size: 0.7rem; }
 
-  .skill-group-name {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent-dim);
-    margin-bottom: 0.9rem;
-  }
-
-  .skill-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .skill-list li {
-    font-size: 0.88rem;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .skill-list li::before {
-    content: '—';
-    color: var(--accent);
-    font-size: 0.7rem;
-  }
-
-  /* About */
-  .about-text {
-    font-size: 1.05rem;
-    color: var(--muted);
-    line-height: 1.85;
-    max-width: 620px;
-  }
-
+  .about-text { font-size: 1.05rem; color: var(--muted); line-height: 1.85; max-width: 620px; }
   .about-text strong { color: var(--text); font-weight: 400; }
 
-  /* Projects */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .project-card {
-    background: var(--bg);
-    padding: 1.75rem;
-    transition: background 0.25s;
-    position: relative;
-  }
-
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .project-card { background: var(--bg); padding: 1.75rem; transition: background 0.25s; position: relative; }
   .project-card:hover { background: var(--faint); }
-
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 2px; height: 0;
-    background: var(--accent);
-    transition: height 0.3s ease;
-  }
-
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 0; background: var(--accent); transition: height 0.3s ease; }
   .project-card:hover::before { height: 100%; }
-
   .project-name { font-size: 1.05rem; color: var(--text); margin-bottom: 0.5rem; }
-
-  .project-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
-
-  .project-link {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    color: var(--accent-dim);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    transition: color 0.2s;
-  }
-
+  .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+  .project-link { font-family: var(--mono); font-size: 0.65rem; color: var(--accent-dim); text-decoration: none; letter-spacing: 0.1em; transition: color 0.2s; }
   .project-link:hover { color: var(--accent); }
 
-  /* Footer */
-  footer {
-    padding: 3rem 0;
-    text-align: center;
-  }
+  footer { padding: 3rem 0; text-align: center; }
+  .footer-text { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.1em; }
 
-  .footer-text {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Modal */
-  .modal-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.75);
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
+  .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
   .modal-backdrop.open { opacity: 1; pointer-events: all; }
-
-  .modal {
-    background: #111113;
-    border: 1px solid var(--border);
-    max-width: 560px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
-  }
-
+  .modal { background: #111113; border: 1px solid var(--border); max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(20px); transition: transform 0.3s ease; }
   .modal-backdrop.open .modal { transform: translateY(0); }
-
-  .modal::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
-  }
-
+  .modal::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-dim), transparent); }
   .modal-header { padding: 2rem 2rem 1.5rem; border-bottom: 1px solid var(--border); }
-
-  .modal-eyebrow {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    color: var(--accent-dim);
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
-
-  .modal-title {
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--text);
-    line-height: 1.15;
-    margin-bottom: 0.4rem;
-  }
-
+  .modal-eyebrow { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--accent-dim); text-transform: uppercase; margin-bottom: 0.75rem; }
+  .modal-title { font-size: 1.8rem; font-weight: 300; color: var(--text); line-height: 1.15; margin-bottom: 0.4rem; }
   .modal-title em { font-style: italic; color: var(--accent); }
   .modal-subtitle { font-size: 0.88rem; color: var(--muted); }
-
-  .modal-close {
-    position: absolute;
-    top: 1.25rem; right: 1.25rem;
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    width: 32px; height: 32px;
-    cursor: pointer;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
-  }
-
+  .modal-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: 1px solid var(--border); color: var(--muted); width: 32px; height: 32px; cursor: pointer; font-family: var(--mono); font-size: 0.75rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
   .modal-close:hover { border-color: var(--accent-dim); color: var(--accent); }
   .modal-body { padding: 1.75rem 2rem; }
-
-  .modal-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 1.75rem;
-  }
-
+  .modal-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 1.75rem; }
   .modal-stat { background: var(--bg); padding: 1.1rem; text-align: center; }
-
-  .modal-stat-value {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .modal-stat-label {
-    font-family: var(--mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-
-  .modal-section-title {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent-dim);
-    margin-bottom: 0.9rem;
-  }
-
-  .modal-text {
-    font-size: 0.93rem;
-    color: var(--muted);
-    line-height: 1.85;
-    margin-bottom: 1.5rem;
-  }
-
+  .modal-stat-value { font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+  .modal-stat-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
+  .modal-section-title { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 0.9rem; }
+  .modal-text { font-size: 0.93rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; }
   .modal-text + .modal-section-title { margin-top: 1.75rem; }
-
   .modal-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.75rem; }
-
-  .modal-footer {
-    padding: 1.25rem 2rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .modal-cta {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    color: var(--bg);
-    background: var(--accent);
-    border: none;
-    padding: 0.55em 1.2em;
-    text-decoration: none;
-    transition: background 0.2s;
-    display: inline-block;
-  }
-
+  .modal-footer { padding: 1.25rem 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .modal-cta { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; color: var(--bg); background: var(--accent); border: none; padding: 0.55em 1.2em; text-decoration: none; transition: background 0.2s; display: inline-block; }
   .modal-cta:hover { background: var(--accent-dim); }
 
   @media (max-width: 600px) {
     .exp-item, .edu-item { grid-template-columns: 1fr; }
-    .exp-period, .edu-year {
-      grid-column: 1; grid-row: auto;
-      text-align: left; margin-bottom: 0.5rem;
-    }
+    .exp-period, .edu-year { grid-column: 1; grid-row: auto; text-align: left; margin-bottom: 0.5rem; }
     .header-meta { gap: 1rem 1.5rem; }
   }
 </style>
 </head>
 <body>
-
 <div class="wrapper">
 
   <header>
@@ -608,9 +187,9 @@
       Outside of coursework, I conduct radiation effects research at the Institute for Space and Defense
       Electronics (ISDE) and contribute to the Vanderbilt Aerospace Design Laboratory (VADL), where I have
       designed, tested, and debugged flight hardware for the avionics and payload of a vehicle competing in
-      the annual NASA USLI Competition. Previously I have interned at the National Institutes of Health and
-      Northrop Grumman, contributing to projects ranging from FPGA RTL development to analyzing antenna
-      radiation patterns.
+      the annual NASA USLI Competition. I also serve as the vice president and electrical lead of the Vanderbilt
+      Robotics Team. Previously I have interned at the National Institutes of Health and Northrop Grumman,
+      contributing to projects ranging from FPGA RTL development to analyzing antenna radiation patterns.
     </p>
   </section>
 
@@ -620,11 +199,9 @@
       <div class="edu-degree">B.E., Electrical &amp; Computer Engineering</div>
       <div class="edu-year">May 2027</div>
       <div class="edu-school">Vanderbilt University · Nashville, TN</div>
-      <div style="grid-column: 1; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.3rem;">
-        <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--muted);">
-          Minor in Digital Fabrication &nbsp;·&nbsp; Minor in Quantum Information Science and Engineering
-        </div>
-        <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--accent); margin-top: 0.3rem;">GPA 3.81</div>
+      <div style="grid-column:1; margin-top:0.5rem; display:flex; flex-direction:column; gap:0.3rem;">
+        <div style="font-family:var(--mono); font-size:0.68rem; color:var(--muted);">Minor in Digital Fabrication &nbsp;·&nbsp; Minor in Quantum Information Science and Engineering</div>
+        <div style="font-family:var(--mono); font-size:0.68rem; color:var(--accent); margin-top:0.3rem;">GPA 3.81</div>
       </div>
     </div>
   </section>
@@ -664,49 +241,88 @@
         <span class="tag">EM Simulation</span>
         <span class="tag">RF Systems</span>
       </div>
-
     </div>
-       <div class="exp-item">
+
+    <div class="exp-item">
       <div class="exp-role">Electrical Engineering Intern</div>
       <div class="exp-period">Jun 2024 — Aug 2024</div>
-      <div class="exp-company">National Institute of Health · Bethesda, MD</div>
-      <div class="exp-sub-label">Offshore Patrol Cutter</div>
-     Tasked with optimizing the essential components of a home-based wearable biosensor for monitoring vitals of suspected 
-     Covid-19 patients with a focus on blood oxygen. The initial design from my mentor featured a register-transfer level (RTL) design for a
-     field programmable gate array (FPGA) too large to beimplemented in a wearable biosensor.
-      I designed a new RTL model using a smaller FPGA to allow for a significantly smaller form factor than the previous design. My new RTL design focused on a control system for
-       light-emitting diodes (LEDs) and light sensors, and on interpreting data. Led the design optimization project for the light-emitting diode control system. Successfully achieved the design 
-       goal of a 40KHz refresh rate for the LEDs in the device. Developed and implemented the test protocols to validate proposed design concepts for the LED Control and Light Sensor control systems. 
-       Successfully confirmed the viability of the designs. Developed an outline for code to eliminate noise and irrelevant frequencies to enable accurate interpretation and filtering of data collected by 
-       the wearable biosensor design by patients and healthcare staff.
+      <div class="exp-company">National Institutes of Health · Bethesda, MD</div>
+      <ul class="exp-bullets">
+        <li>Optimized essential components of a home-based wearable biosensor for monitoring vitals of suspected Covid-19 patients, with a focus on blood oxygen sensing.</li>
+        <li>Designed a new RTL model targeting a smaller FPGA to achieve a significantly reduced form factor, focusing on LED control, light sensor interfacing, and data interpretation.</li>
+        <li>Successfully achieved the design goal of a 40 kHz refresh rate for the LED control system.</li>
+        <li>Developed and implemented test protocols to validate proposed designs for both the LED control and light sensor control systems, confirming design viability.</li>
+        <li>Outlined a filtering approach to eliminate noise and irrelevant frequencies, enabling accurate interpretation of biosensor data by patients and healthcare staff.</li>
+      </ul>
       <div class="exp-tags">
         <span class="tag">VHDL</span>
         <span class="tag">FPGA</span>
         <span class="tag">RTL Design</span>
         <span class="tag">Control Systems</span>
+        <span class="tag">Wearable Sensors</span>
       </div>
     </div>
 
   </section>
-<div class="altium-ecad-viewer" data-project-token="zvoHq46Nv0y9T%2FPUElEHUPT7" data-enabled-views="PCB,3D,STACKUP,SCH" data-active-view="PCB" style="border-radius: 0px 0px 4px 4px; height: 500px; border-style: solid; border-width: 1px; border-color: rgb(241, 241, 241); overflow: hidden; max-width: 1280px; max-height: 700px; box-sizing: border-box;"></div><script src="https://viewer.altium.com/client/static/js/embed.js?ver=1772734855672"></script>
+
   <section>
     <div class="section-label">Selected Projects</div>
     <div class="projects-grid">
+
       <div class="project-card">
-        <div class="project-name">Meridian Design System</div>
-        <p class="project-desc">500+ component library with full dark/light theming, accessibility baked in, and Storybook documentation.</p>
-        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('meridian')">VIEW CASE STUDY →</button>
+        <div class="project-name">Robotics PCB</div>
+        <p class="project-desc">Sensor array and telemetry board for the Vanderbilt Robotics Team autonomous vehicle.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('robotics')">VIEW PROJECT →</button>
       </div>
+
       <div class="project-card">
-        <div class="project-name">Onboard · Stripe</div>
-        <p class="project-desc">Redesigned merchant onboarding reducing time-to-first-transaction from 4.2 to 1.8 days on average.</p>
-        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('stripe')">VIEW CASE STUDY →</button>
+        <div class="project-name">STM32 Breakout Board</div>
+        <p class="project-desc">Breakout board for an STM32F4 microcontroller, designed to explore support circuitry and PCB layout.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('stm32')">VIEW PROJECT →</button>
       </div>
+
       <div class="project-card">
-        <div class="project-name">Carta — Open Source</div>
-        <p class="project-desc">A minimal, typographically-driven portfolio template. 1.4k GitHub stars and counting.</p>
-        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('carta')">GITHUB →</button>
+        <div class="project-name">FPGA Spectrum Analyzer</div>
+        <p class="project-desc">RTL design converting microphone input into a VGA-based spectrum analyzer with a corresponding heatmap.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('fpga')">GITHUB →</button>
       </div>
+
+      <div class="project-card">
+        <div class="project-name">Radiation Effects Research</div>
+        <p class="project-desc">Research on the effects of ionizing radiation on silicon dioxide optical waveguides at ISDE.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('radiation')">VIEW PROJECT →</button>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">QRP BJT Amplifier</div>
+        <p class="project-desc">Designed and simulated a transmitter amplifier for a QRP texting circuit as part of a circuits course.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('qrp')">VIEW PROJECT →</button>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Generative Design Skateboard Trucks</div>
+        <p class="project-desc">Generative design case study for a longboard hanger that doubles as a motor mount.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('skate')">VIEW PROJECT →</button>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Detent Mechanism Phone Holder</div>
+        <p class="project-desc">Class-based deep dive into top-down modeling using a detent mechanism phone holder as the subject.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('detent')">VIEW PROJECT →</button>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Motor Controller Independent Study</div>
+        <p class="project-desc">Independent study exploring motor controller design, simulation, and closed-loop control.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('motor')">VIEW PROJECT →</button>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">STM32 Bare Metal Drivers</div>
+        <p class="project-desc">Bare metal peripheral drivers for an STM32F4 microcontroller written in C without HAL abstractions.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('baremetal')">GITHUB →</button>
+      </div>
+
     </div>
   </section>
 
@@ -780,56 +396,86 @@
 
 <script>
   const projects = {
-    meridian: {
-      eyebrow: 'Case Study · Meridian Labs · 2023–Present',
-      title: 'Meridian <em>Design System</em>',
-      subtitle: 'Building the single source of truth for a 40k-team platform',
-      stats: [
-        { value: '70%', label: 'Fewer UI bugs' },
-        { value: '500+', label: 'Components' },
-        { value: '12', label: 'Teams served' },
-      ],
-      sections: [
-        { heading: 'The Problem', text: 'Meridian had grown fast. Twelve product teams, each shipping their own buttons, modals, and form patterns. The result: a product that looked different depending on which screen you were on, and engineers rebuilding the same components from scratch every sprint.' },
-        { heading: 'My Approach', text: 'I started with a full component audit — cataloguing 800+ UI elements across the product and grouping them by function and visual pattern. From there I proposed a tiered system: a foundation layer (color, typography, spacing tokens), a core component library, and a set of composition patterns for common page layouts.' },
-        { heading: 'The Outcome', text: 'Six months after launch, UI-related bug reports dropped 70%. Designer-to-developer handoff time halved. New features that previously took two weeks to scaffold now ship in three days.' },
-      ],
-      tags: ['Design Systems', 'Figma', 'React', 'Storybook', 'Tokens', 'Accessibility'],
-      page: 'meridian.html',
+    robotics: {
+      eyebrow: 'Project · Vanderbilt Robotics · 2025',
+      title: 'Robotics <em>PCB</em>',
+      subtitle: 'Sensor array and telemetry for an autonomous vehicle',
+      stats: [],
+      sections: [{ heading: 'Overview', text: 'Designed a custom PCB for the Vanderbilt Robotics Team\'s autonomous vehicle, integrating a sensor array and telemetry system.' }],
+      tags: ['Altium Designer', 'PCB Layout', 'Sensor Integration', 'Telemetry'],
+      page: 'robotics.html',
     },
-    stripe: {
-      eyebrow: 'Case Study · Stripe · 2020–2023',
-      title: 'Onboard <em>· Stripe</em>',
-      subtitle: 'Cutting time-to-first-transaction from 4.2 to 1.8 days',
-      stats: [
-        { value: '22%', label: 'Activation lift' },
-        { value: '30+', label: 'Experiments run' },
-        { value: '1.8d', label: 'Avg. onboard time' },
-      ],
-      sections: [
-        { heading: 'The Problem', text: 'New merchants were dropping off during onboarding at a rate that was costing Stripe millions in lost GMV each month. The existing flow was built for compliance, not for humans — dense forms, no progress feedback, and a confusing jump between the dashboard and API docs.' },
-        { heading: 'My Approach', text: 'I ran a four-week discovery sprint: moderated sessions with 18 new merchants, instrumented funnel analysis, and a competitive teardown of 11 other payment onboarding flows. The clearest insight: merchants didn\'t want to "complete onboarding" — they wanted to see money move.' },
-        { heading: 'The Outcome', text: 'A progressive disclosure model that surfaces only what\'s needed at each step, with a live test-payment sandbox reachable in under 3 minutes. 7-day activation rates rose 22% in the first cohort.' },
-      ],
-      tags: ['Growth Design', 'A/B Testing', 'User Research', 'Data Analysis', 'Motion Design'],
-      page: 'stripe.html',
+    stm32: {
+      eyebrow: 'Project · Personal · 2024',
+      title: 'STM32 <em>Breakout Board</em>',
+      subtitle: 'Exploring support circuitry for the STM32F4',
+      stats: [],
+      sections: [{ heading: 'Overview', text: 'Designed a breakout board for the STM32F4 microcontroller to study support circuitry — power regulation, decoupling, clock sources, and debug interfaces.' }],
+      tags: ['Altium Designer', 'STM32', 'PCB Layout', 'Power Design'],
+      page: 'stm32.html',
     },
-    carta: {
-      eyebrow: 'Open Source · 2022',
-      title: 'Carta <em>Template</em>',
-      subtitle: 'A typographically-driven portfolio template for designers',
-      stats: [
-        { value: '1.4k', label: 'GitHub stars' },
-        { value: '340+', label: 'Forks' },
-        { value: 'MIT', label: 'License' },
-      ],
-      sections: [
-        { heading: 'The Project', text: 'Carta started as my own portfolio site, stripped down and open-sourced after several designer friends asked for the code. The premise: most portfolio templates are either over-engineered React apps or lifeless WordPress themes. Carta is a single HTML file with zero dependencies.' },
-        { heading: 'Design Decisions', text: 'Cormorant Garamond for display type — an editorial choice that signals craft without trying too hard. DM Mono for metadata and labels. The dark palette came later, after the community overwhelmingly preferred it in a poll.' },
-        { heading: 'Community', text: 'What started as a side project now has 340+ forks and a small community contributing translations, color themes, and CMS integrations. The most popular fork adds a Notion-powered blog with zero build step.' },
-      ],
-      tags: ['HTML / CSS', 'Typography', 'Open Source', 'Portfolio Design'],
-      page: 'carta.html',
+    fpga: {
+      eyebrow: 'Project · Vanderbilt ECE · 2024',
+      title: 'FPGA <em>Spectrum Analyzer</em>',
+      subtitle: 'Microphone input to VGA spectrum display with heatmap',
+      stats: [],
+      sections: [{ heading: 'Overview', text: 'Developed an RTL design in VHDL that samples microphone input, performs frequency analysis, and renders a real-time spectrum analyzer and heatmap over VGA.' }],
+      tags: ['VHDL', 'FPGA', 'RTL Design', 'VGA', 'Signal Processing'],
+      page: 'fpga.html',
+    },
+    radiation: {
+      eyebrow: 'Research · ISDE · 2024–Present',
+      title: 'Radiation Effects <em>Research</em>',
+      subtitle: 'Effects of ionizing radiation on SiO₂ optical waveguides',
+      stats: [],
+      sections: [{ heading: 'Overview', text: 'Conducting research at the Institute for Space and Defense Electronics (ISDE) on the effects of ionizing radiation on silicon dioxide optical waveguides.' }],
+      tags: ['Radiation Effects', 'Photonics', 'Test & Measurement', 'Research'],
+      page: 'radiation.html',
+    },
+    qrp: {
+      eyebrow: 'Project · Vanderbilt ECE · 2024',
+      title: 'QRP BJT <em>Amplifier</em>',
+      subtitle: 'Transmitter amplifier design for a QRP texting circuit',
+      stats: [],
+      sections: [{ heading: 'Overview', text: 'Designed and simulated a BJT-based transmitter amplifier for a QRP (low power) texting circuit.' }],
+      tags: ['BJT', 'Amplifier Design', 'LTspice', 'RF Circuits'],
+      page: 'qrp.html',
+    },
+    skate: {
+      eyebrow: 'Project · Digital Fabrication · 2024',
+      title: 'Generative Design <em>Skateboard Trucks</em>',
+      subtitle: 'Longboard hanger doubling as a motor mount',
+      stats: [],
+      sections: [{ heading: 'Overview', text: 'Applied generative design techniques in Fusion 360 to create a longboard hanger that doubles as a motor mount, balancing structural performance with minimal material use.' }],
+      tags: ['Fusion 360', 'Generative Design', 'FEA', '3D Printing'],
+      page: 'skate.html',
+    },
+    detent: {
+      eyebrow: 'Project · Digital Fabrication · 2024',
+      title: 'Detent Mechanism <em>Phone Holder</em>',
+      subtitle: 'Top-down modeling case study',
+      stats: [],
+      sections: [{ heading: 'Overview', text: 'Designed a detent mechanism-based phone holder as a deep dive into top-down modeling workflows in Fusion 360.' }],
+      tags: ['Fusion 360', 'Top-Down Modeling', 'Mechanism Design', '3D Printing'],
+      page: 'detent.html',
+    },
+    motor: {
+      eyebrow: 'Independent Study · 2025',
+      title: 'Motor Controller <em>Independent Study</em>',
+      subtitle: 'Exploring motor controller design and closed-loop control',
+      stats: [],
+      sections: [{ heading: 'Overview', text: 'Independent study exploring the design, simulation, and implementation of motor controllers.' }],
+      tags: ['Motor Control', 'PCB Design', 'Embedded C', 'Control Theory'],
+      page: 'motor.html',
+    },
+    baremetal: {
+      eyebrow: 'Project · Personal · 2024',
+      title: 'STM32 Bare Metal <em>Drivers</em>',
+      subtitle: 'Peripheral drivers without HAL abstractions',
+      stats: [],
+      sections: [{ heading: 'Overview', text: 'Wrote bare metal peripheral drivers for the STM32F4 in C, directly interfacing with hardware registers without using ST\'s HAL library.' }],
+      tags: ['STM32', 'Bare Metal', 'C', 'Embedded Systems', 'UART / SPI / I2C'],
+      page: 'baremetal.html',
     },
   };
 
@@ -839,9 +485,12 @@
     document.getElementById('modal-title').innerHTML = p.title;
     document.getElementById('modal-subtitle').textContent = p.subtitle;
 
-    let statsHtml = '<div class="modal-stats">';
-    p.stats.forEach(s => { statsHtml += `<div class="modal-stat"><div class="modal-stat-value">${s.value}</div><div class="modal-stat-label">${s.label}</div></div>`; });
-    statsHtml += '</div>';
+    let statsHtml = '';
+    if (p.stats.length > 0) {
+      statsHtml = '<div class="modal-stats">';
+      p.stats.forEach(s => { statsHtml += `<div class="modal-stat"><div class="modal-stat-value">${s.value}</div><div class="modal-stat-label">${s.label}</div></div>`; });
+      statsHtml += '</div>';
+    }
 
     let sectionsHtml = '';
     p.sections.forEach(s => { sectionsHtml += `<div class="modal-section-title">${s.heading}</div><p class="modal-text">${s.text}</p>`; });
@@ -851,7 +500,6 @@
     tagsHtml += '</div>';
 
     document.getElementById('modal-body').innerHTML = statsHtml + sectionsHtml + tagsHtml;
-
     document.getElementById('modal-footer').innerHTML = `
       <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="closeModal()">CLOSE ✕</button>
       ${p.page ? `<a href="${p.page}" class="modal-cta">READ FULL CASE STUDY →</a>` : ''}
@@ -872,6 +520,5 @@
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
-
 </body>
 </html>

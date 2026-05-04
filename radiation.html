@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meridian Design System — Alex Morgan</title>
+<title>Radiation Effects Research — Xavier Onwu</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -392,135 +393,64 @@
     .img-grid-2 { grid-template-columns: 1fr; }
     .page-footer { flex-direction: column; align-items: flex-start; }
   }
+
 </style>
 </head>
 <body>
-
 <div class="wrapper">
 
   <nav>
     <a href="index.html" class="nav-back">← Back to Resume</a>
-    <span class="nav-name">Alex Morgan</span>
+    <span class="nav-name">Xavier Onwu</span>
   </nav>
 
   <div class="hero">
-    <div class="hero-eyebrow">Case Study · Meridian Labs · 2023 — Present</div>
-    <h1 class="hero-title">Meridian <em>Design System</em></h1>
-    <p class="hero-summary">
-      How I rebuilt a fragmented UI ecosystem used across 12 product teams into a unified, 500+ component design system — cutting inconsistencies by 70% and halving feature delivery time.
-    </p>
-    <div class="stats-bar">
-      <div class="stat">
-        <div class="stat-value">70%</div>
-        <div class="stat-label">Fewer UI bugs</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">500+</div>
-        <div class="stat-label">Components</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">12</div>
-        <div class="stat-label">Teams served</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">2×</div>
-        <div class="stat-label">Faster delivery</div>
-      </div>
-    </div>
+    <div class="hero-eyebrow">Research · ISDE · 2024–Present</div>
+    <h1 class="hero-title">Radiation Effects <em>Research</em></h1>
+    <p class="hero-summary">Ongoing research at Vanderbilt's Institute for Space and Defense Electronics (ISDE) investigating the effects of ionizing radiation on silicon dioxide optical waveguides.</p>
+      <div class="stats-bar">
+      <div class="stat"><div class="stat-value">Lab</div><div class="stat-label">ISDE</div></div>
+      <div class="stat"><div class="stat-value">Material</div><div class="stat-label">SiO₂</div></div>
+      <div class="stat"><div class="stat-value">Status</div><div class="stat-label">Ongoing</div></div>
+  </div>
   </div>
 
-  <!-- Hero image — replace img-block with <img src="hero.jpg" ...> when ready -->
-  <div class="content-section" style="padding-top: 3rem; padding-bottom: 0; border-bottom: none;">
+  <div class="content-section" style="padding-top:3rem;padding-bottom:0;border-bottom:none;">
     <div class="img-block img-block-tall">
-      <div class="img-block-label">Hero image — replace with a screenshot or cover photo<br><br>
-        &lt;img src="meridian-hero.jpg" alt="Meridian Design System overview" style="width:100%;height:100%;object-fit:cover;"&gt;
-      </div>
+      <div class="img-block-label">Hero image — replace with &lt;img src="..."&gt;</div>
+    </div>
+  </div>
+
+
+  <div class="content-section">
+    <div class="section-label">Background</div>
+    <p class="content-p">Provide context for the research here — why SiO₂ waveguides matter for space and defense applications, the known failure mechanisms from ionizing radiation, and the gap in the literature your work addresses.</p>
+    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
+      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="section-label">Methodology</div>
+    <p class="content-p">Describe your experimental approach — radiation source, dose levels, measurement setup (e.g. optical loss characterization before and after irradiation), and any controls or reference samples used.</p>
+    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
+      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="section-label">Findings</div>
+    <p class="content-p">Summarize your findings so far — observed trends in optical loss, any annealing behavior, and what the results suggest about the suitability of SiO₂ waveguides for radiation-hardened photonic systems.</p>
+    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
+      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
     </div>
   </div>
 
   <div class="content-section">
-    <div class="section-label">The Problem</div>
-    <h2 class="content-h2">Twelve teams, <em>twelve different UIs</em></h2>
-    <p class="content-p">
-      Meridian had grown fast. Twelve product teams, each shipping their own buttons, modals, and form patterns — borrowing loosely from a three-year-old Sketch file nobody fully trusted. The result was a product that looked noticeably different depending on which screen you were on.
-    </p>
-    <p class="content-p">
-      Engineers were rebuilding the same components from scratch every sprint. Designers were spending 40% of their time in spec mode rather than solving problems. And every new feature shipped three or four new one-off components nobody would ever maintain.
-    </p>
-
-    <div class="pull-quote">
-      <div class="pull-quote-text">"We kept designing the same dropdown. Just… slightly different every time."</div>
-      <div class="pull-quote-attr">— Senior engineer, Meridian Platform team</div>
-    </div>
-
-    <div class="img-grid-2">
-      <div class="img-block img-block-medium">
-        <div class="img-block-label">Before — inconsistent components<br>Replace with your screenshot</div>
-      </div>
-      <div class="img-block img-block-medium">
-        <div class="img-block-label">After — unified system<br>Replace with your screenshot</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-section">
-    <div class="section-label">My Approach</div>
-    <h2 class="content-h2">Audit first, <em>build second</em></h2>
-    <p class="content-p">
-      I started with a full component audit — cataloguing 800+ UI elements across the product and grouping them by function and visual pattern. This wasn't just a design exercise: I worked alongside two engineers to map each component to its codebase counterpart, so we could deprecate duplicates without breaking anything.
-    </p>
-    <p class="content-p">
-      From there I proposed a tiered architecture: a foundation layer of design tokens (color, typography, spacing, elevation), a core component library of ~80 primitives, and a set of composition patterns for the most common page layouts. Everything documented in Storybook, with accessibility annotations baked in from day one.
-    </p>
-
-    <!-- 3D model / embed slot — paste your Sketchfab or Altium 365 iframe here -->
-    <div class="embed-block" style="margin-top: 2rem;">
-      <div class="embed-placeholder">
-        <div class="embed-placeholder-border"></div>
-        <div class="embed-placeholder-title">Interactive embed</div>
-        <div class="embed-placeholder-hint">
-          Paste a Sketchfab, Altium 365, or Fusion 360 iframe here to show an interactive 3D model or prototype.
-        </div>
-        <div class="embed-placeholder-border"></div>
-      </div>
-      <!-- Example:
-      <iframe src="https://sketchfab.com/models/YOUR_MODEL_ID/embed" allowfullscreen></iframe>
-      -->
-    </div>
-
-    <div class="img-block img-block-medium" style="margin-top: 1px;">
-      <div class="img-block-label">Process image — token architecture diagram, Figma screenshot, etc.</div>
-    </div>
-  </div>
-
-  <div class="content-section">
-    <div class="section-label">The Outcome</div>
-    <h2 class="content-h2">The most-starred <em>internal repo</em></h2>
-    <p class="content-p">
-      Six months after launch, UI-related bug reports dropped 70%. Designer-to-developer handoff time halved. New features that previously took two weeks to scaffold now ship in three days.
-    </p>
-    <p class="content-p">
-      The system has since expanded to cover data visualisation components, email templates, and a mobile token layer for Meridian's React Native app. It's now the most-starred internal repo at the company.
-    </p>
-
-    <div class="img-block img-block-medium" style="margin-top: 2rem;">
-      <div class="img-block-label">Outcome image — Storybook screenshot, adoption metrics, team testimonial</div>
-    </div>
-
-    <div class="tags-row">
-      <span class="tag">Design Systems</span>
-      <span class="tag">Figma</span>
-      <span class="tag">React</span>
-      <span class="tag">Storybook</span>
-      <span class="tag">Design Tokens</span>
-      <span class="tag">Accessibility</span>
-      <span class="tag">Component Audit</span>
-      <span class="tag">React Native</span>
-    </div>
+    <div class="section-label">Tools &amp; Methods</div>
+    <div class="tags-row"><span class="tag">Radiation Effects</span> <span class="tag">Photonics</span> <span class="tag">SiO₂ Waveguides</span> <span class="tag">Test & Measurement</span> <span class="tag">Optical Loss</span> <span class="tag">Research</span></div>
   </div>
 
   <div class="page-footer">
-    <span class="footer-text">Alex Morgan · Meridian Design System · 2023</span>
+    <span class="footer-text">Xavier Onwu · Radiation Effects Research</span>
     <a href="index.html" class="back-btn">← BACK TO RESUME</a>
   </div>
 

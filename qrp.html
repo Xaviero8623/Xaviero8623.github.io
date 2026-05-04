@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QRP BJT Amplifier — Xavier Onwu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111113;
+    --border: #1e1e22;
+    --accent: #c8a96e;
+    --accent-dim: #8a7149;
+    --text: #e8e3d8;
+    --muted: #6b6660;
+    --faint: #1a1a1e;
+    --tag-bg: #16161a;
+    --mono: 'DM Mono', monospace;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.6;
+  }
+
+  .wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Nav */
+  nav {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .nav-back {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--accent); }
+
+  .nav-name {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 4.5rem 0 3.5rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    color: var(--accent-dim);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-summary {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 580px;
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+
+  .stat {
+    background: var(--bg);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Image placeholder */
+  .img-block {
+    width: 100%;
+    background: var(--faint);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .img-block-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .img-block-tall { height: 380px; }
+  .img-block-medium { height: 260px; }
+  .img-block-short { height: 200px; }
+
+  /* Replace this with a real <img> tag when you have images:
+     <img src="your-image.jpg" alt="Description" style="width:100%;height:100%;object-fit:cover;"> */
+
+  /* Embed block (for 3D models, iframes etc) */
+  .embed-block {
+    width: 100%;
+    height: 480px;
+    background: var(--faint);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .embed-block iframe {
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .embed-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .embed-placeholder-title {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .embed-placeholder-hint {
+    font-size: 0.85rem;
+    color: var(--muted);
+    opacity: 0.6;
+    max-width: 320px;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .embed-placeholder-border {
+    width: 40px; height: 1px;
+    background: var(--accent-dim);
+  }
+
+  /* Content sections */
+  .content-section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .content-section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .content-h2 {
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .content-h2 em { font-style: italic; color: var(--accent); }
+
+  .content-p {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 620px;
+    margin-bottom: 1.25rem;
+  }
+
+  .content-p:last-child { margin-bottom: 0; }
+
+  /* Two-col image grid */
+  .img-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin: 2rem 0;
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 2px solid var(--accent);
+    padding: 1rem 0 1rem 1.75rem;
+    margin: 2rem 0;
+  }
+
+  .pull-quote-text {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .pull-quote-attr {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--accent-dim);
+    margin-top: 0.75rem;
+  }
+
+  /* Tags */
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    padding: 0.2em 0.65em;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .tag:hover { color: var(--accent); border-color: var(--accent-dim); }
+
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Footer nav */
+  .page-footer {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-text {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .back-btn {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--bg);
+    background: var(--accent);
+    text-decoration: none;
+    padding: 0.55em 1.2em;
+    transition: background 0.2s;
+  }
+
+  .back-btn:hover { background: var(--accent-dim); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .content-section:nth-of-type(1) { animation-delay: 0.6s; }
+  .content-section:nth-of-type(2) { animation-delay: 0.75s; }
+  .content-section:nth-of-type(3) { animation-delay: 0.9s; }
+  .content-section:nth-of-type(4) { animation-delay: 1.05s; }
+  .content-section:nth-of-type(5) { animation-delay: 1.2s; }
+
+  @media (max-width: 600px) {
+    .stats-bar { grid-template-columns: 1fr 1fr; }
+    .img-grid-2 { grid-template-columns: 1fr; }
+    .page-footer { flex-direction: column; align-items: flex-start; }
+  }
+
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <nav>
+    <a href="index.html" class="nav-back">← Back to Resume</a>
+    <span class="nav-name">Xavier Onwu</span>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Project · Vanderbilt ECE · 2024</div>
+    <h1 class="hero-title">QRP BJT <em>Amplifier</em></h1>
+    <p class="hero-summary">Designed and simulated a BJT-based transmitter amplifier for a QRP low-power texting circuit as part of a circuits course project.</p>
+      <div class="stats-bar">
+      <div class="stat"><div class="stat-value">Power</div><div class="stat-label">QRP <5W</div></div>
+      <div class="stat"><div class="stat-value">Topology</div><div class="stat-label">Class-C</div></div>
+      <div class="stat"><div class="stat-value">Sim</div><div class="stat-label">LTspice</div></div>
+  </div>
+  </div>
+
+  <div class="content-section" style="padding-top:3rem;padding-bottom:0;border-bottom:none;">
+    <div class="img-block img-block-tall">
+      <div class="img-block-label">Hero image — replace with &lt;img src="..."&gt;</div>
+    </div>
+  </div>
+
+
+  <div class="content-section">
+    <div class="section-label">Overview</div>
+    <p class="content-p">Designed a BJT transmitter amplifier stage intended for use in a QRP (low-power) HF texting circuit. The design targets small signal amplification with sufficient gain and bandwidth for the intended transmission frequency.</p>
+    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
+      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="section-label">Design & Simulation</div>
+    <p class="content-p">Describe your biasing approach, choice of BJT, gain calculations, and how you selected component values. Include details about your LTspice simulation — operating point, AC analysis, and transient response.</p>
+    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
+      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="section-label">Results</div>
+    <p class="content-p">Summarize your simulation results — gain, bandwidth, output power, and efficiency. Note any discrepancies between hand calculations and simulation, and how you iterated on the design.</p>
+    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
+      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="section-label">Tools &amp; Methods</div>
+    <div class="tags-row"><span class="tag">BJT</span> <span class="tag">Amplifier Design</span> <span class="tag">LTspice</span> <span class="tag">RF Circuits</span> <span class="tag">Biasing</span> <span class="tag">Class-C</span></div>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-text">Xavier Onwu · QRP BJT Amplifier</span>
+    <a href="index.html" class="back-btn">← BACK TO RESUME</a>
+  </div>
+
+</div>
+</body>
+</html>
