@@ -46,11 +46,15 @@
 
   .wrapper { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
 
-  header {
+header {
     padding: 5rem 0 4rem;
     border-bottom: 1px solid var(--border);
     position: relative;
     overflow: hidden;
+    background-image: url('images/ece_award.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
 
   header::after {
@@ -163,12 +167,6 @@
     .exp-period, .edu-year { grid-column: 1; grid-row: auto; text-align: left; margin-bottom: 0.5rem; }
     .header-meta { gap: 1rem 1.5rem; }
   }
-  header {
-  background-image: url('images/ece_award.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
 
 header::before {
   content: '';
