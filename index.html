@@ -397,7 +397,7 @@
 <script>
   const projects = {
     robotics: {
-      eyebrow: 'Project · Vanderbilt Robotics · 2025',
+      eyebrow: 'Project · Vanderbilt Robotics · 2026',
       title: 'Robotics <em>PCB</em>',
       subtitle: 'Sensor array and telemetry for an autonomous vehicle',
       stats: [],
@@ -502,7 +502,7 @@
     document.getElementById('modal-body').innerHTML = statsHtml + sectionsHtml + tagsHtml;
     document.getElementById('modal-footer').innerHTML = `
       <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="closeModal()">CLOSE ✕</button>
-      ${p.page ? `<a href="${p.page}" class="modal-cta">READ FULL CASE STUDY →</a>` : ''}
+      ${p.page ? `<a href="${p.page}" class="modal-cta">View Project →</a>` : ''}
     `;
 
     document.getElementById('modal-backdrop').classList.add('open');
