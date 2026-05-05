@@ -418,7 +418,11 @@
 
   <div class="content-section">
     <div class="section-label">Overview</div>
-    <p class="content-p">This PCB acts as a sensor hub for the an autonomous vehicle competing in the annual Intelligent Ground Vehicle Competition (IGVC). The powerhouse of this PCB is an STM32 </p>
+    <p class="content-p">This PCB acts as a sensor hub for the an autonomous vehicle competing in the annual Intelligent Ground Vehicle Competition (IGVC). The powerhouse of this PCB is an STM32H743XIH6. 
+      This microcontroller comes in a high density 240 pin BGA format. The PCB also features a usb-c port capable of usb 2.0 FS, a buck converter capable of converting 6V-36V to 5V, a GPS module, a LORA module that operates at 915MHz,
+    a small footprint STLINK port for debugging, an imu for orientation,and a lowside power mosfet to turn on a DC contactor for power control. The usb-c port is enabled by a cp2102-gmr uart to usb bridge.
+    The buck converter is a LMR33630 that provides a low ripple stable 5V. 5V from the usb port or the buck converter can be utilized to power the LDO that provides 3.3V for the MCU and peripheral.
+    Both power sources can be on at the same time due to a protective diode-oring. The GPS module is a MAX-M10S-00B configured for an active antenna to increase sensitivity to GPS signals.  </p>
     <div class="content-section" style="padding-top:3rem;padding-bottom:0;border-bottom:none;">
   <div class="img-block img-block-tall">
     <img src="images/robotics_pcb.jpeg" alt="Robotics PCB" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;">
