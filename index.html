@@ -141,6 +141,7 @@
   }
 
   .project-card:hover::after { opacity: 0.30; }
+  .project-card.active-card::after { opacity: 0.15; }
 
   .project-card > * {
     position: relative;
@@ -594,6 +595,20 @@ function closePoster() {
   b.style.opacity = '0';
   b.style.pointerEvents = 'none';
   document.body.style.overflow = '';
+}
+// Mobile scroll-over card backgrounds
+if (window.matchMedia('(max-width: 768px)').matches) {
+  const cards = document.querySelectorAll('.project-card');
+  const cardObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.intersectionRatio > 0.6) {
+        e.target.classList.add('active-card');
+      } else {
+        e.target.classList.remove('active-card');
+      }
+    });
+  }, { threshold: 0.6 });
+  cards.forEach(card => cardObserver.observe(card));
 }
 </script>
 </body>
