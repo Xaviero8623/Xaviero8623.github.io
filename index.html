@@ -265,10 +265,35 @@
         <span class="tag">Control Systems</span>
         <span class="tag">Wearable Sensors</span>
       </div>
+
+      <div style="grid-column: 1 / -1; margin-top: 0.75rem;">
+      <button onclick="openPoster()" class="modal-cta">VIEW RESEARCH POSTER →</button>
+    </div>
     </div>
 
-    <div style="border-bottom: 1px solid var(--border); opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;">
-    <img src="images/nih_poster.png" alt="Xavier Onwu receiving ECE award" style="width:100%; height:auto; object-fit:contain; object-position:center top; display:block;">
+  
+
+  </section>
+
+  <section>
+    <div class="section-label">Research</div>
+
+    <div class="exp-item">
+      <div class="exp-role">Undergraduate Researcher</div>
+      <div class="exp-period">2024 — Present</div>
+      <div class="exp-company">Institute for Space and Defense Electronics (ISDE) · Vanderbilt University</div>
+      <ul class="exp-bullets">
+        <li>Conducting research on the effects of ionizing radiation on silicon dioxide optical waveguides, with implications for radiation-hardened photonic systems in space and defense applications.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag">Radiation Effects</span>
+        <span class="tag">Photonics</span>
+        <span class="tag">SiO₂ Waveguides</span>
+        <span class="tag">Test &amp; Measurement</span>
+      </div>
+      <div style="grid-column: 1 / -1; margin-top: 0.75rem;">
+      <a href="radiation.html" class="modal-cta">VIEW FULL RESEARCH →</a>
+      </div>
     </div>
 
   </section>
@@ -293,12 +318,6 @@
         <div class="project-name">FPGA Spectrum Analyzer</div>
         <p class="project-desc">RTL design converting microphone input into a VGA-based spectrum analyzer with a corresponding heatmap.</p>
         <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('fpga')">VIEW PROJECT →</button>
-      </div>
-
-      <div class="project-card">
-        <div class="project-name">Radiation Effects Research</div>
-        <p class="project-desc">Research on the effects of ionizing radiation on silicon dioxide optical waveguides at ISDE.</p>
-        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('radiation')">VIEW PROJECT →</button>
       </div>
 
       <div class="project-card">
@@ -386,6 +405,13 @@
 
 </div>
 
+<!-- Poster Modal -->
+<div id="poster-backdrop" onclick="closePoster()" style="position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:3000;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity 0.3s ease;">
+  <div onclick="event.stopPropagation()" style="position:relative;max-width:90vw;max-height:90vh;">
+    <button onclick="closePoster()" style="position:absolute;top:-2.5rem;right:0;background:none;border:1px solid var(--border);color:var(--muted);width:32px;height:32px;cursor:pointer;font-family:var(--mono);font-size:0.75rem;display:flex;align-items:center;justify-content:center;">✕</button>
+    <img src="images/nih_poster.png" alt="NIH Research Poster" style="max-width:90vw;max-height:85vh;object-fit:contain;border:1px solid var(--border);display:block;">
+  </div>
+</div>
 <!-- Modal -->
 <div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
   <div class="modal" id="modal">
@@ -526,7 +552,21 @@
     if (e.target === document.getElementById('modal-backdrop')) closeModal();
   }
 
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closePoster(); } });
+
+  function openPoster() {
+  const b = document.getElementById('poster-backdrop');
+  b.style.opacity = '1';
+  b.style.pointerEvents = 'all';
+  document.body.style.overflow = 'hidden';
+}
+
+function closePoster() {
+  const b = document.getElementById('poster-backdrop');
+  b.style.opacity = '0';
+  b.style.pointerEvents = 'none';
+  document.body.style.overflow = '';
+}
 </script>
 </body>
 </html>

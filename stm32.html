@@ -411,48 +411,53 @@
       <div class="stats-bar">
       <div class="stat"><div class="stat-value">MCU</div><div class="stat-label">STM32F4</div></div>
       <div class="stat"><div class="stat-value">Layers</div><div class="stat-label">2-layer</div></div>
-      <div class="stat"><div class="stat-value">Interface</div><div class="stat-label">SWD</div></div>
+      <div class="stat"><div class="stat-value">Manufacturer</div><div class="stat-label">JLCPCB</div></div>
+      <div class="stat"><div class="stat-value">Status</div><div class="stat-label">Finished</div></div>
   </div>
   </div>
 
-  <div class="content-section" style="padding-top:3rem;padding-bottom:0;border-bottom:none;">
-    <div class="img-block img-block-tall">
-      <div class="img-block-label">Hero image — replace with &lt;img src="..."&gt;</div>
-    </div>
-  </div>
-
-  <div class="content-section" style="padding-top:2rem;padding-bottom:0;border-bottom:none;">
-    <div class="embed-block">
-      <div class="embed-placeholder">
-        <div class="embed-placeholder-border"></div>
-        <div class="embed-placeholder-title">Interactive embed</div>
-        <div class="embed-placeholder-hint">Paste your Altium 365 or Sketchfab embed code here to show an interactive 3D model of the PCB.</div>
-        <div class="embed-placeholder-border"></div>
-      </div>
-      <!-- Paste your iframe here, e.g. Altium 365, Sketchfab, or Fusion 360 -->
-    </div>
-  </div>
-
-  <div class="content-section">
+   <div class="content-section">
     <div class="section-label">Overview</div>
-    <p class="content-p">Designed a breakout board for the STM32F4 to study the support circuitry needed around a microcontroller — bulk decoupling, per-pin filtering, LDO power regulation, crystal oscillator layout, and SWD debug header.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    <p class="content-p">This PCB acts as a sensor hub for an autonomous vehicle competing in the annual Intelligent Ground Vehicle Competition (IGVC). The powerhouse of this PCB is an STM32H743XIH6, paired with a 24 MHz clock.
+      This microcontroller comes in a high density 240 pin BGA format. The PCB also features a USB-C port capable of USB 2.0 FS, a buck converter capable of converting 6V–36V to 5V, a GPS module, a LoRa module that operates at 915 MHz,
+      a small footprint STLINK port for debugging, an IMU for orientation, and a low-side power MOSFET to turn on a DC contactor for power control. The USB-C port is enabled by a CP2102-GMR UART to USB bridge.
+      The buck converter is a LMR33630 that provides a low-ripple stable 5V. 5V from the USB port or the buck converter can be utilized to power the LDO that provides 3.3V for the MCU and peripherals.
+      Both power sources can be on at the same time due to a protective diode-oring. The GPS module is a MAX-M10S-00B configured for an active antenna to increase sensitivity. The IMU is a BNO055
+      configured with a 25 kHz clock for added stability. The LoRa module is a RAK3172, a module for the SX1262.</p>
+  </div>
+ 
+  <div class="content-section" style="padding-top:2rem;padding-bottom:2rem;border-bottom:none;">
+    <div class="img-block img-block-tall">
+      <img src="images/robotics_pcb.jpeg" alt="Robotics PCB" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;transform:rotate(90deg);">
     </div>
   </div>
+ 
   <div class="content-section">
     <div class="section-label">Design Decisions</div>
-    <p class="content-p">Describe your component choices, footprint decisions, and any layout rules you followed for the clock or power domains. Note any design rule checks you ran and how you resolved issues.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    <p class="content-p">The PCB is 4 layers and double sided due to the density of the BGA pins and components. The decoupling capacitors were routed to the other side of the board using vias. The buck converter
+      and its support circuitry were placed on the bottom separated from the rest of the components to minimize noise. Ground and power planes were implemented on the middle layers to further reduce noise and
+      provide better thermal performance. The power MOSFET was placed in an isolated region of the board with adequate copper pour for heat dissipation. The GPS and LoRa modules along with their antennas were
+      placed on the opposite side of the board from the power MOSFET to minimize interference. For the GPS, an inductor and DC blocking capacitor as rated by the manufacturer were implemented to provide
+      clean power for the active antenna. The USB port features an interesting bend where the data lines wrap over each other, which is acceptable for clean data transmission at USB 2.0 speeds, and enables the
+      cable to be plugged in regardless of polarity.</p>
+  </div>
+ 
+  <div class="content-section" style="padding-top:2rem;padding-bottom:2rem;border-bottom:none;">
+    <div class="embed-block">
+     <iframe src="https://personal-viewer.365.altium.com/client/index.html?feature=embed&source=20B9A4C8-CD61-4970-9A78-878F4BD62F0C&activeView=PCB" width="1280" height="720" style="overflow:hidden;border:none;width:100%;height:720px;"
+      scrolling="no" allowfullscreen="true" onload="window.top.scrollTo(0,0);"></iframe>
     </div>
   </div>
+ 
   <div class="content-section">
-    <div class="section-label">Testing & Outcome</div>
-    <p class="content-p">Describe how you validated the board — programming it for the first time, measuring supply rails, and confirming peripheral functionality.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
+    <div class="section-label">Testing &amp; Outcome</div>
+    <p class="content-p">Most of the sensors on the board worked as intended. The IMU output data correctly in all modes tested, including with the oscillator enabled. The GPS module proved very successful, able to lock onto up to 7 satellites
+      inside certain buildings and provide accurate positioning information. The buck converter performed as expected, but the diode-oring could be improved. A phenomenon occurred where the USB port would provide all current for the PCB
+      when both the USB and a battery source were connected. This can be attributed to the fact that USB lines can sit at slightly above 5V while the buck converter output is precisely calibrated to 5V via feedback. The result is that
+      the diode fed by the USB port turns on while the buck converter remains off. To fix this in a future revision the buck converter will be modified to output 5.5V so that it always takes priority over the USB port.</p>
+    <p class="content-p">Another design flaw observed was a failure to properly implement USB flashing. A goal of this design was to minimize the necessity for an ST-LINK and enable field flashing via USB using middleware like PlatformIO.
+      The wrong pins were used for the bootloader, so the USB port only functions as a serial output. Additionally, the wrong UART pins were connected to the RAK3172 LoRa module — the original firmware uses UART2 for AT commands,
+      but UART1 was connected instead. As a result, using the LoRa module required painstakingly holding jumper wires to copper pads. Both issues have been documented for the next board revision.</p>
   </div>
 
   <div class="content-section">
