@@ -120,10 +120,32 @@
   .about-text strong { color: var(--text); font-weight: 400; }
 
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .project-card { background: var(--bg); padding: 1.75rem; transition: background 0.25s; position: relative; }
-  .project-card:hover { background: var(--faint); }
-  .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 0; background: var(--accent); transition: height 0.3s ease; }
-  .project-card:hover::before { height: 100%; }
+  .project-card {
+    background: var(--bg);
+    padding: 1.75rem;
+    transition: background 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--card-bg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+  }
+
+  .project-card:hover::after { opacity: 0.30; }
+
+  .project-card > * {
+    position: relative;
+    z-index: 1;
+  }
   .project-name { font-size: 1.05rem; color: var(--text); margin-bottom: 0.5rem; }
   .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
   .project-link { font-family: var(--mono); font-size: 0.65rem; color: var(--accent-dim); text-decoration: none; letter-spacing: 0.1em; transition: color 0.2s; }
@@ -302,11 +324,17 @@
     <div class="section-label">Projects</div>
     <div class="projects-grid">
 
-      <div class="project-card">
+      <!-- <div class="project-card">
         <div class="project-name">Robotics PCB</div>
         <p class="project-desc">Sensor array and telemetry board for the Vanderbilt Robotics Team autonomous vehicle.</p>
         <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('robotics')">VIEW PROJECT →</button>
-      </div>
+      </div> -->
+
+      <div class="project-card" style="--card-bg: url('images/robotics_pcb.jpeg');">
+        <div class="project-name">Robotics PCB</div>
+        <p class="project-desc">Sensor array and telemetry board for the Vanderbilt Robotics Team autonomous vehicle.</p>
+        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('robotics')">VIEW PROJECT →</button>
+    </div>
 
       <div class="project-card">
         <div class="project-name">STM32 Breakout Board</div>
