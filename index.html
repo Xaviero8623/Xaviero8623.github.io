@@ -601,13 +601,16 @@ if (window.matchMedia('(max-width: 768px)').matches) {
   const cards = document.querySelectorAll('.project-card');
   const cardObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting && e.intersectionRatio > 0.2) {
+      if (e.isIntersecting) {
         e.target.classList.add('active-card');
       } else {
         e.target.classList.remove('active-card');
       }
     });
-  }, { threshold: 0.6 });
+  }, { 
+    threshold: 0,
+    rootMargin: '-35% 0px -35% 0px'
+  });
   cards.forEach(card => cardObserver.observe(card));
 }
 </script>
