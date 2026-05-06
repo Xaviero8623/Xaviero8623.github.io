@@ -418,28 +418,28 @@
 
    <div class="content-section">
     <div class="section-label">Overview</div>
-    <p class="content-p">This PCB acts as a sensor hub for an autonomous vehicle competing in the annual Intelligent Ground Vehicle Competition (IGVC). The powerhouse of this PCB is an STM32H743XIH6, paired with a 24 MHz clock.
-      This microcontroller comes in a high density 240 pin BGA format. The PCB also features a USB-C port capable of USB 2.0 FS, a buck converter capable of converting 6V–36V to 5V, a GPS module, a LoRa module that operates at 915 MHz,
-      a small footprint STLINK port for debugging, an IMU for orientation, and a low-side power MOSFET to turn on a DC contactor for power control. The USB-C port is enabled by a CP2102-GMR UART to USB bridge.
-      The buck converter is a LMR33630 that provides a low-ripple stable 5V. 5V from the USB port or the buck converter can be utilized to power the LDO that provides 3.3V for the MCU and peripherals.
-      Both power sources can be on at the same time due to a protective diode-oring. The GPS module is a MAX-M10S-00B configured for an active antenna to increase sensitivity. The IMU is a BNO055
-      configured with a 25 kHz clock for added stability. The LoRa module is a RAK3172, a module for the SX1262.</p>
+    <p class="content-p">This project involved the end-to-end development of a custom breakout board centered on the STM32F405RGT6 microcontroller, designed within Altium Designer and manufactured by JLCPCB. 
+      To ensure high-speed signal integrity, the hardware utilizes a four-layer PCB architecture following JLCPCB's 7628 stack-up specifications, allowing for precise impedance control of the differential pairs.
+      The board features a USB Mini-B connector, leveraging the microcontroller’s native USB 2.0 capabilities with controlled-impedance routing. Power 
+      management is handled by an on-board linear regulator that steps down 5V input—sourced from either the USB connector or external headers—to the 3.3V required by the MCU. For expanded functionality and ease 
+      of use, the design includes five GPIO headers and a standard 20-pin SWD header for seamless programming and debugging via an ST-LINK. To support high-performance applications, the system is clocked by a 24 MHz 
+      external oscillator, providing a more stable and precise timing source than internal RC oscillators.</p>
   </div>
  
   <div class="content-section" style="padding-top:2rem;padding-bottom:2rem;border-bottom:none;">
-    <div class="img-block img-block-tall">
-      <img src="images/robotics_pcb.jpeg" alt="Robotics PCB" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;transform:rotate(90deg);">
+    <div class="img-block img-block-tall" style="border:none; background:none;">
+      <img src="images/stm32_breakout.jpeg" alt="STM32 Breakout Board" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block;">
     </div>
   </div>
  
   <div class="content-section">
     <div class="section-label">Design Decisions</div>
-    <p class="content-p">The PCB is 4 layers and double sided due to the density of the BGA pins and components. The decoupling capacitors were routed to the other side of the board using vias. The buck converter
-      and its support circuitry were placed on the bottom separated from the rest of the components to minimize noise. Ground and power planes were implemented on the middle layers to further reduce noise and
-      provide better thermal performance. The power MOSFET was placed in an isolated region of the board with adequate copper pour for heat dissipation. The GPS and LoRa modules along with their antennas were
-      placed on the opposite side of the board from the power MOSFET to minimize interference. For the GPS, an inductor and DC blocking capacitor as rated by the manufacturer were implemented to provide
-      clean power for the active antenna. The USB port features an interesting bend where the data lines wrap over each other, which is acceptable for clean data transmission at USB 2.0 speeds, and enables the
-      cable to be plugged in regardless of polarity.</p>
+    <p class="content-p"> The goal of this design was to create a base platform for stm32 protoyping and also learn about  the functional implementation of the MCU. Most of the design choices were based around
+                          simplicity and the support circuitry needed to boot the microcontroller. The inclusion of a USB port was mainly to gain practice with impedance control and also configuring the native
+                          usb port of the stm32. The inclusion of the oscillator was to gain experience with external clock sources and also to provide a more stable clock signal for the MCU. The SWD header is included
+                          for easy debugging. Three LEDs were included, one for power status, and the other two for GPIO based debugging and status. The five breakout boards serve the expansion purpose allowing for interfacing
+                          with other peripherals and sensors.
+    </p>
   </div>
  
   <div class="content-section" style="padding-top:2rem;padding-bottom:2rem;border-bottom:none;">
@@ -451,13 +451,14 @@
  
   <div class="content-section">
     <div class="section-label">Testing &amp; Outcome</div>
-    <p class="content-p">Most of the sensors on the board worked as intended. The IMU output data correctly in all modes tested, including with the oscillator enabled. The GPS module proved very successful, able to lock onto up to 7 satellites
-      inside certain buildings and provide accurate positioning information. The buck converter performed as expected, but the diode-oring could be improved. A phenomenon occurred where the USB port would provide all current for the PCB
-      when both the USB and a battery source were connected. This can be attributed to the fact that USB lines can sit at slightly above 5V while the buck converter output is precisely calibrated to 5V via feedback. The result is that
-      the diode fed by the USB port turns on while the buck converter remains off. To fix this in a future revision the buck converter will be modified to output 5.5V so that it always takes priority over the USB port.</p>
-    <p class="content-p">Another design flaw observed was a failure to properly implement USB flashing. A goal of this design was to minimize the necessity for an ST-LINK and enable field flashing via USB using middleware like PlatformIO.
-      The wrong pins were used for the bootloader, so the USB port only functions as a serial output. Additionally, the wrong UART pins were connected to the RAK3172 LoRa module — the original firmware uses UART2 for AT commands,
-      but UART1 was connected instead. As a result, using the LoRa module required painstakingly holding jumper wires to copper pads. Both issues have been documented for the next board revision.</p>
+    <p class="content-p">Testing confirmed successful implementation of the microcontroller, external clock source, and USB port. All were successfully tested and function as intended. This board was hand assembled so an important part 
+                          of testing was checking for shorts and cold solder joints that could negatively effect performance or cause damage to devices on the board. Heavy testing using a multimeter was conducted to verify all connections. </p>
+  </div>
+
+      <div class="content-section" style="padding-top:2rem;padding-bottom:2rem;border-bottom:none;">
+    <div class="img-block img-block-tall" style="border:none; background:none;">
+      <img src="images/breakout_testing.jpeg" alt="STM32 Breakout Board" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block;">
+    </div>
   </div>
 
   <div class="content-section">

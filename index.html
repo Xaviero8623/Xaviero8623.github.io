@@ -140,7 +140,7 @@
     z-index: 0;
   }
 
-  .project-card:hover::after { opacity: 0.30; }
+  .project-card:hover::after { opacity: 0.40; }
   .project-card.active-card::after { opacity: 0.15; }
 
   .project-card > * {
@@ -325,19 +325,13 @@
     <div class="section-label">Projects</div>
     <div class="projects-grid">
 
-      <!-- <div class="project-card">
-        <div class="project-name">Robotics PCB</div>
-        <p class="project-desc">Sensor array and telemetry board for the Vanderbilt Robotics Team autonomous vehicle.</p>
-        <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('robotics')">VIEW PROJECT →</button>
-      </div> -->
-
       <div class="project-card" style="--card-bg: url('images/robotics_pcb.jpeg');">
         <div class="project-name">Robotics PCB</div>
         <p class="project-desc">Sensor array and telemetry board for the Vanderbilt Robotics Team autonomous vehicle.</p>
         <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('robotics')">VIEW PROJECT →</button>
     </div>
 
-      <div class="project-card">
+      <div class="project-card" style="--card-bg: url('images/stm32_breakout.jpeg');">
         <div class="project-name">STM32 Breakout Board</div>
         <p class="project-desc">Breakout board for an STM32F4 microcontroller, designed to explore support circuitry and PCB layout.</p>
         <button class="project-link" style="background:none;border:none;padding:0;cursor:pointer;" onclick="openModal('stm32')">VIEW PROJECT →</button>
