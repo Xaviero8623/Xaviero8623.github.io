@@ -571,6 +571,18 @@
     document.body.style.overflow = '';
   }
 
+  // Mobile tap to open modal
+if (window.matchMedia('(max-width: 768px)').matches) {
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Don't trigger if they clicked the actual button
+      if (e.target.classList.contains('project-link')) return;
+      const btn = this.querySelector('.project-link');
+      if (btn) btn.click();
+    });
+  });
+}
+
   function handleBackdropClick(e) {
     if (e.target === document.getElementById('modal-backdrop')) closeModal();
   }
