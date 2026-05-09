@@ -445,7 +445,9 @@
   <div class="content-section">
     <div class="section-label">Report</div>
     <p class="content-p" style="margin-bottom:1.5rem;">Full project report covering design methodology, simulation results, and analysis.</p>
-    <div style="border:1px solid var(--border); overflow:auto; background:#f5f5f5;" id="pdf-viewer"></div>
+    <div style="border:1px solid var(--border); overflow:hidden; aspect-ratio:1/1.4;">
+      <iframe src="resources/Electronics_II_Final.pdf" style="width:100%;height:100%;border:none;display:block;"></iframe>
+    </div>
   </div>
 
   <div class="content-section">
@@ -459,41 +461,5 @@
   </div>
 
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script>
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-  
-  const pdfUrl = 'resources/Electronics_II_Final.pdf';
-  const container = document.getElementById('pdf-viewer');
-  
-  pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
-    let pageNum = 1;
-    function renderPage() {
-      pdf.getPage(pageNum).then(page => {
-        let canvas = document.createElement('canvas');
-        let ctx = canvas.getContext('2d');
-        let scale = window.innerWidth < 768 ? 1 : 1.3;
-        let viewport = page.getViewport({scale: scale});
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        canvas.style.display = 'block';
-        canvas.style.margin = '0 auto 10px';
-        
-        page.render({canvasContext: ctx, viewport: viewport}).promise.then(() => {
-          container.appendChild(canvas);
-          if(pageNum < pdf.numPages) {
-            pageNum++;
-            renderPage();
-          }
-        });
-      });
-    }
-    renderPage();
-  }).catch(err => {
-    container.innerHTML = '<p style="padding:2rem;color:#c8a96e;">Error loading PDF. Please check the file path.</p>';
-  });
-</script>
-
 </body>
 </html>
