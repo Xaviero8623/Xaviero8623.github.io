@@ -410,21 +410,6 @@
 .file-btn:hover { background: var(--faint); color: var(--accent); }
 .file-btn.active { background: var(--faint); color: var(--accent); border-bottom: 1px solid var(--accent); }
 
-  /* Hide the fallback wrapper by default (on desktop) */
-  .mobile-fallback-wrapper {
-    display: none;
-  }
-  
-  /* On screens smaller than 768px, hide iframe, show button */
-  @media (max-width: 768px) {
-    .pdf-container {
-      display: none !important; 
-    }
-    .mobile-fallback-wrapper {
-      display: block; /* Shows your grid-column div */
-    }
-  }
-
 </style>
 </head>
 <body>
@@ -485,6 +470,31 @@
   <div class="content-section">
     <div class="section-label">Final Report</div>
     <p class="content-p" style="margin-bottom:1.5rem;">Full system design report covering hardware architecture, DSP implementation, timing analysis, and results.</p>
+    <div style="border:1px solid var(--border); overflow:hidden;">
+      <iframe src="resources/FPGA_final_project.pdf" style="width:100%;height:700px;border:none;display:block;"></iframe>
+    </div>
+  </div>
+
+  <style>
+  /* Hide the fallback wrapper by default (on desktop) */
+  .mobile-fallback-wrapper {
+    display: none;
+  }
+  
+  /* On screens smaller than 768px, hide iframe, show button */
+  @media (max-width: 768px) {
+    .pdf-container {
+      display: none !important; 
+    }
+    .mobile-fallback-wrapper {
+      display: block; /* Shows your grid-column div */
+    }
+  }
+</style>
+
+<div class="content-section">
+    <div class="section-label">Report</div>
+    <p class="content-p" style="margin-bottom:1.5rem;">Full system design report covering hardware architecture, DSP implementation, timing analysis, and results.</p>
     
     <!-- The iframe container (hidden on mobile) -->
     <div class="pdf-container" style="border:1px solid var(--border); overflow:hidden; aspect-ratio:1/1.4;">
@@ -492,10 +502,10 @@
     </div>
 
     <!-- Your custom mobile fallback button (hidden on desktop) -->
-    <div class="mobile-fallback-wrapper" style="grid-column: 1 / -1; margin-top: 0.75rem;">
-      <button onclick="openPoster()" class="back-btn">VIEW DESIGN REPORT →</button>
-    </div>
-  </div>
+    <a href="resources/FPGA_final_project.pdf" target="_blank" class="back-btn">
+      View Full Report (PDF)
+    </a>
+</div>
 
   <div class="content-section">
     <div class="section-label">Tools &amp; Methods</div>
@@ -527,10 +537,6 @@ window.addEventListener('load', () => {
   const defaultBtn = document.querySelector('.file-btn:nth-child(1)');
   loadFile('resources/FPGA/Spectrum_analyzer.vhd', defaultBtn);
 });
-
-function openPoster() {
-  window.open('resources/FPGA_final_project.pdf', '_blank');
-}
 </script>
 </body>
 </html>
