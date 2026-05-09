@@ -394,6 +394,22 @@
     .page-footer { flex-direction: column; align-items: flex-start; }
   }
 
+  .file-btn {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  background: var(--bg);
+  border: none;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.file-btn:hover { background: var(--faint); color: var(--accent); }
+.file-btn.active { background: var(--faint); color: var(--accent); border-bottom: 1px solid var(--accent); }
+
 </style>
 </head>
 <body>
@@ -409,38 +425,53 @@
     <h1 class="hero-title">FPGA <em>Spectrum Analyzer</em></h1>
     <p class="hero-summary">An RTL design in VHDL that samples microphone input, performs real-time frequency analysis, and renders a spectrum analyzer and heatmap over VGA.</p>
       <div class="stats-bar">
-      <div class="stat"><div class="stat-value">Clock</div><div class="stat-label">50 MHz</div></div>
-      <div class="stat"><div class="stat-value">Output</div><div class="stat-label">VGA 640×480</div></div>
+      <div class="stat"><div class="stat-value">Board</div><div class="stat-label">DE2-115</div></div>
+      <div class="stat"><div class="stat-value">Display</div><div class="stat-label">VGA 640×480</div></div>
       <div class="stat"><div class="stat-value">Language</div><div class="stat-label">VHDL</div></div>
+      <div class="stat"><div class="stat-value">Input</div><div class="stat-label">Microphone</div></div>
   </div>
   </div>
-
-  <div class="content-section" style="padding-top:3rem;padding-bottom:0;border-bottom:none;">
-    <div class="img-block img-block-tall">
-      <div class="img-block-label">Hero image — replace with &lt;img src="..."&gt;</div>
-    </div>
-  </div>
-
 
   <div class="content-section">
     <div class="section-label">Overview</div>
-    <p class="content-p">Developed a fully synthesizable RTL design targeting an FPGA development board. The system samples audio input from a microphone, performs a frequency transform, and renders a real-time spectrum display and heatmap on a VGA monitor.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
+    <p class="content-p">Real-time audio processing requires strict deterministic timing and high-throughput parallel computation capabilities. FPGAs are highly suited for Digital Signal Processing (DSP) operations like the Fast Fourier Transform (FFT) due to their inherent parallelism and ability to process streaming data without instruction-fetch latency. The objective of this project is to create a fully integrated Audio Spectrum Analyzer that responds instantaneously to ambient audio and visualizes frequency content seamlessly.</p>
+    <p class="content-p">The project emphasizes hardware architecture design, state-machine-driven data flow, I2C/I2S communication protocols, and complex mathematical realization in VHDL without the reliance on a soft-core processor. By managing all peripheral interfacing and DSP algorithms through dedicated custom logic, the system minimizes latency and maximizes throughput.</p>
   </div>
-  <div class="content-section">
-    <div class="section-label">Architecture</div>
-    <p class="content-p">Describe your system architecture here — ADC interface, FFT or DFT implementation approach, bin mapping, VGA timing controller, and how the heatmap buffer is managed. Include details on clock domain crossings if applicable.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
+
+<div class="content-section">
+  <div class="section-label">Results</div>
+  <p class="content-p">A demonstration of the FPGA Spectrum Analyzer and heatmap in action.</p>
+  <div class="img-block" style="margin-top:1.5rem; height:auto; aspect-ratio:16/9;">
+    <img src="images/fpga_demo.gif" alt="FPGA Spectrum Analyzer Demo" style="width:100%;height:100%;object-fit:contain;display:block;">
   </div>
+</div>
+
+<div class="content-section">
+  <div class="section-label">Source Code</div>
+  
+  <div style="display:flex; flex-wrap:wrap; gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:1px;">
+    <button onclick="loadFile('resources/FPGA/fft_core.vhd', this)" class="file-btn">fft_core.vhd</button>
+    <button onclick="loadFile('resources/FPGA/hex_display.vhd', this)" class="file-btn">hex_display.vhd</button>
+    <button onclick="loadFile('resources/FPGA/i2c_master.vhd', this)" class="file-btn">i2c_master.vhd</button>
+    <button onclick="loadFile('resources/FPGA/i2s_capture.vhd', this)" class="file-btn">i2s_capture.vhd</button>
+    <button onclick="loadFile('resources/FPGA/i2s_receiver.vhd', this)" class="file-btn">i2s_receiver.vhd</button>
+    <button onclick="loadFile('resources/FPGA/pll_audio.vhd', this)" class="file-btn">pll_audio.vhd</button>
+    <button onclick="loadFile('resources/FPGA/pll_vga.vhd', this)" class="file-btn">pll_vga.vhd</button>
+    <button onclick="loadFile('resources/FPGA/Spectrum_analyzer.vhd', this)" class="file-btn">Spectrum_analyzer.vhd</button>
+    <button onclick="loadFile('resources/FPGA/twiddle_rom.vhd', this)" class="file-btn">twiddle_rom.vhd</button>
+    <button onclick="loadFile('resources/FPGA/wm8731_init.vhd', this)" class="file-btn">wm8731_init.vhd</button>
+  </div>
+
+  <div id="code-container" style="background:var(--faint);border:1px solid var(--border);overflow:auto;max-height:600px;">
+    <pre id="code-display" style="font-family:var(--mono);font-size:0.72rem;color:var(--muted);padding:1.5rem;margin:0;white-space:pre;line-height:1.6;">Select a file above to view its source code.</pre>
+  </div>
+</div>
+
   <div class="content-section">
-    <div class="section-label">Results</div>
-    <p class="content-p">Describe your timing closure results, resource utilization, and how the display looked and performed during demo. Note any tradeoffs you made between frequency resolution and update rate.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    <div class="section-label">Final Report</div>
+    <p class="content-p" style="margin-bottom:1.5rem;">Full system design report covering hardware architecture, DSP implementation, timing analysis, and results.</p>
+    <div style="border:1px solid var(--border); overflow:hidden;">
+      <iframe src="resources/FPGA_final_project.pdf" style="width:100%;height:700px;border:none;display:block;"></iframe>
     </div>
   </div>
 
@@ -455,5 +486,21 @@
   </div>
 
 </div>
+
+<script>
+function loadFile(path, btn) {
+  document.querySelectorAll('.file-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  fetch(path)
+    .then(r => r.text())
+    .then(code => {
+      document.getElementById('code-display').textContent = code;
+    })
+    .catch(() => {
+      document.getElementById('code-display').textContent = 'Could not load file.';
+    });
+}
+</script>
 </body>
 </html>
