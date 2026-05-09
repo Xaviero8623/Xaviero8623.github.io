@@ -442,16 +442,10 @@
     </div>
   </div>
 
-  <style>
-  .mobile-pdf-btn {
+<style>
+  /* Hide the fallback wrapper by default (on desktop) */
+  .mobile-fallback-wrapper {
     display: none;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-    margin-top: 1rem;
   }
   
   /* On screens smaller than 768px, hide iframe, show button */
@@ -459,8 +453,8 @@
     .pdf-container {
       display: none !important; 
     }
-    .mobile-pdf-btn {
-      display: inline-block;
+    .mobile-fallback-wrapper {
+      display: block; /* Shows your grid-column div */
     }
   }
 </style>
@@ -474,11 +468,12 @@
       <iframe src="resources/Electronics_II_Final.pdf" style="width:100%;height:100%;border:none;display:block;"></iframe>
     </div>
 
-    <!-- The mobile fallback button (hidden on desktop) -->
-    <a href="resources/Electronics_II_Final.pdf" target="_blank" class="mobile-pdf-btn">
-      View Full Report (PDF)
-    </a>
+    <!-- Your custom mobile fallback button (hidden on desktop) -->
+    <div class="mobile-fallback-wrapper" style="grid-column: 1 / -1; margin-top: 0.75rem;">
+      <button onclick="openPoster()" class="modal-cta">VIEW RESEARCH POSTER →</button>
+    </div>
 </div>
+
 
   <div class="content-section">
     <div class="section-label">Tools &amp; Methods</div>
