@@ -604,7 +604,24 @@ function closePoster() {
   document.body.style.overflow = '';
 }
 // Mobile scroll-over card backgrounds
-// Click anywhere on card to open modal
+if (window.matchMedia('(max-width: 768px)').matches) {
+  const cards = document.querySelectorAll('.project-card');
+  const cardObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('active-card');
+      } else {
+        e.target.classList.remove('active-card');
+      }
+    });
+  }, { 
+    threshold: 0,
+    rootMargin: '-25% 0px -25% 0px'
+  });
+  cards.forEach(card => cardObserver.observe(card));
+}
+
+// Click anywhere on card to open modal (desktop + mobile)
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', function(e) {
     if (e.target.classList.contains('project-link')) return;
