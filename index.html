@@ -603,22 +603,14 @@ function closePoster() {
   document.body.style.overflow = '';
 }
 // Mobile scroll-over card backgrounds
-if (window.matchMedia('(max-width: 768px)').matches) {
-  const cards = document.querySelectorAll('.project-card');
-  const cardObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('active-card');
-      } else {
-        e.target.classList.remove('active-card');
-      }
-    });
-  }, { 
-    threshold: 0,
-    rootMargin: '-25% 0px -25% 0px'
+// Click anywhere on card to open modal
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    if (e.target.classList.contains('project-link')) return;
+    const btn = this.querySelector('.project-link');
+    if (btn) btn.click();
   });
-  cards.forEach(card => cardObserver.observe(card));
-}
+});
 </script>
 </body>
 </html>
