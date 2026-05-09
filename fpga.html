@@ -450,6 +450,7 @@
   <div class="section-label">Source Code</div>
   
   <div style="display:flex; flex-wrap:wrap; gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:1px;">
+    <button onclick="loadFile('resources/FPGA/Spectrum_analyzer.vhd', this)" class="file-btn">Spectrum_analyzer.vhd</button>
     <button onclick="loadFile('resources/FPGA/fft_core.vhd', this)" class="file-btn">fft_core.vhd</button>
     <button onclick="loadFile('resources/FPGA/hex_display.vhd', this)" class="file-btn">hex_display.vhd</button>
     <button onclick="loadFile('resources/FPGA/i2c_master.vhd', this)" class="file-btn">i2c_master.vhd</button>
@@ -457,7 +458,6 @@
     <button onclick="loadFile('resources/FPGA/i2s_receiver.vhd', this)" class="file-btn">i2s_receiver.vhd</button>
     <button onclick="loadFile('resources/FPGA/pll_audio.vhd', this)" class="file-btn">pll_audio.vhd</button>
     <button onclick="loadFile('resources/FPGA/pll_vga.vhd', this)" class="file-btn">pll_vga.vhd</button>
-    <button onclick="loadFile('resources/FPGA/Spectrum_analyzer.vhd', this)" class="file-btn">Spectrum_analyzer.vhd</button>
     <button onclick="loadFile('resources/FPGA/twiddle_rom.vhd', this)" class="file-btn">twiddle_rom.vhd</button>
     <button onclick="loadFile('resources/FPGA/wm8731_init.vhd', this)" class="file-btn">wm8731_init.vhd</button>
   </div>
@@ -501,6 +501,10 @@ function loadFile(path, btn) {
       document.getElementById('code-display').textContent = 'Could not load file.';
     });
 }
+window.addEventListener('load', () => {
+  const defaultBtn = document.querySelector('.file-btn:nth-child(8)');
+  loadFile('resources/FPGA/Spectrum_analyzer.vhd', defaultBtn);
+});
 </script>
 </body>
 </html>
