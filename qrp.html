@@ -442,13 +442,43 @@
     </div>
   </div>
 
-  <div class="content-section">
+  <style>
+  .mobile-pdf-btn {
+    display: none;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* On screens smaller than 768px, hide iframe, show button */
+  @media (max-width: 768px) {
+    .pdf-container {
+      display: none !important; 
+    }
+    .mobile-pdf-btn {
+      display: inline-block;
+    }
+  }
+</style>
+
+<div class="content-section">
     <div class="section-label">Report</div>
     <p class="content-p" style="margin-bottom:1.5rem;">Full project report covering design methodology, simulation results, and analysis.</p>
-    <div style="border:1px solid var(--border); overflow:hidden; aspect-ratio:1/1.4;">
+    
+    <!-- The iframe container (hidden on mobile) -->
+    <div class="pdf-container" style="border:1px solid var(--border); overflow:hidden; aspect-ratio:1/1.4;">
       <iframe src="resources/Electronics_II_Final.pdf" style="width:100%;height:100%;border:none;display:block;"></iframe>
     </div>
-  </div>
+
+    <!-- The mobile fallback button (hidden on desktop) -->
+    <a href="resources/Electronics_II_Final.pdf" target="_blank" class="mobile-pdf-btn">
+      View Full Report (PDF)
+    </a>
+</div>
 
   <div class="content-section">
     <div class="section-label">Tools &amp; Methods</div>
