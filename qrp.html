@@ -405,42 +405,48 @@
   </nav>
 
   <div class="hero">
-    <div class="hero-eyebrow">Project · Vanderbilt ECE · 2024</div>
+    <div class="hero-eyebrow">Project · Vanderbilt ECE · 2026</div>
     <h1 class="hero-title">QRP BJT <em>Amplifier</em></h1>
     <p class="hero-summary">Designed and simulated a BJT-based transmitter amplifier for a QRP low-power texting circuit as part of a circuits course project.</p>
       <div class="stats-bar">
-      <div class="stat"><div class="stat-value">Power</div><div class="stat-label">QRP <5W</div></div>
-      <div class="stat"><div class="stat-value">Topology</div><div class="stat-label">Class-C</div></div>
-      <div class="stat"><div class="stat-value">Sim</div><div class="stat-label">LTspice</div></div>
+      <div class="stat"><div class="stat-value">Course</div><div class="stat-label">Electronics II <5W</div></div>
+      <div class="stat"><div class="stat-value">Analysis</div><div class="stat-label">AC Small Signal</div></div>
+      <div class="stat"><div class="stat-value">Simulation Software</div><div class="stat-label">LTspice</div></div>
+      <div class="stat"><div class="stat-value">Performance Metrics</div><div class="stat-label">Gain, Bandwidth, Distortion</div></div>
   </div>
   </div>
-
-  <div class="content-section" style="padding-top:3rem;padding-bottom:0;border-bottom:none;">
-    <div class="img-block img-block-tall">
-      <div class="img-block-label">Hero image — replace with &lt;img src="..."&gt;</div>
-    </div>
-  </div>
-
 
   <div class="content-section">
     <div class="section-label">Overview</div>
-    <p class="content-p">Designed a BJT transmitter amplifier stage intended for use in a QRP (low-power) HF texting circuit. The design targets small signal amplification with sufficient gain and bandwidth for the intended transmission frequency.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    <p class="content-p">QRP radio transmission is a communication protocal within the amateur radio community involving maximum transmission range and informational content using minimal
+                        power. This radio design philosophy is based on the U.S. FCC Part 97 rule mandating that amateurs should “use the minimum power necessary to carry out the desired
+                        communications.”</p>
+    <p class="content-p">Texting via QRP involves using PSK31 digital encoding of text information within an amateur radio frequency band. To transmit a message, PSK31 is used to convert
+                        binary inputs to an analog waveform and the computers sound card is used to create an audio wave train of the binary sequence by imparting to an audio tone where 180◦
+                        phase shift represents a 0 and no phase shift represents a 1. A typical radio frequency (RF) transmission band used for this purpose is the high frequency (3-30MHz or ITU
+                        band 7), specifically the 40-meter wavelength, or 7.1MHz. We were tasked with designing an amplifier for a QRP Texting Transmission circuit involving a NXP SA612 and 75Ω
+                        antenna.</p>
+    <p class="content-p">The goal of the design project is to meet the criteria defined in below. The expected input signal for the amplifier originates from the SA612A mixer/oscillator
+                        integrated circuit, which will deliver a modulated 7.1 MHz signal to our amplifier that contains audio wave from the PSK31 converted signal. The SA612A has an output
+                        impedance of 1.5 kΩ, which is responsible for the design specification of the amplifier input resistance being equal to 1.5 kΩ ± 20% over the entire bandwidth of operation. The
+                        output of the amplifier will drive a 75 Ω coaxial cable to an antenna with minimal power loss and reflections. This is maintained by the specification of a strict output impedance
+                        of 75 Ω ± 20% over the entire bandwidth. To allow for long distance transmission, the gain specification goal is 60dB of voltage gain within ± 1.5dB over the full bandwidth
+                        of at 500kHz – 7.2MHz. The maximum allocated dc current target goal is 12mA or less from a voltage supply of +9V.</p>
+  </div>
+
+  <div class="content-section">
+    <div class="section-label">Completed Circuit</div>
+  <p class="content-p">The completed QRP amplifier circuit is shown below.</p>
+    <div class="img-block" style="margin-top:1.5rem;">
+      <img src="images/QRP.png" alt="QRP Amplifier Design" style="width:100%;height:auto;display:block;">
     </div>
   </div>
+
   <div class="content-section">
-    <div class="section-label">Design & Simulation</div>
-    <p class="content-p">Describe your biasing approach, choice of BJT, gain calculations, and how you selected component values. Include details about your LTspice simulation — operating point, AC analysis, and transient response.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
-  </div>
-  <div class="content-section">
-    <div class="section-label">Results</div>
-    <p class="content-p">Summarize your simulation results — gain, bandwidth, output power, and efficiency. Note any discrepancies between hand calculations and simulation, and how you iterated on the design.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    <div class="section-label">Report</div>
+    <p class="content-p" style="margin-bottom:1.5rem;">Full project report covering design methodology, simulation results, and analysis.</p>
+    <div style="border:1px solid var(--border); overflow:hidden;">
+      <iframe src="resources/Electronics_II_Final.pdf" style="width:100%;height:700px;border:none;display:block;"></iframe>
     </div>
   </div>
 
