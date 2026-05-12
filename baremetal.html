@@ -394,6 +394,23 @@
     .page-footer { flex-direction: column; align-items: flex-start; }
   }
 
+   .file-btn {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  background: var(--bg);
+  border: none;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.file-btn:hover { background: var(--faint); color: var(--accent); }
+.file-btn.active { background: var(--faint); color: var(--accent); border-bottom: 1px solid var(--accent); }
+
+
 </style>
 </head>
 <body>
@@ -421,33 +438,71 @@
     </div>
   </div>
 
+<div class="content-section">
+  <div class="section-label">Overview</div>
+  <p class="content-p">Developed a suite of bare metal drivers for the STM32F3 series of microcontrollers, written in C and built in Arm Keil µVision5 using CMSIS files, an ST-LINK debugger, and an STM32F334R8 Nucleo board.
+    The purpose of this project was to develop a deep understanding of STM32 architecture by interfacing directly with hardware registers—without relying on HAL or LL driver abstractions.</p>
+</div>
 
-  <div class="content-section">
-    <div class="section-label">Overview</div>
-    <p class="content-p">Wrote bare metal drivers for the STM32F4 to develop a deeper understanding of microcontroller peripherals by working directly with memory-mapped registers. The project covers the most common communication and I/O peripherals.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
-  </div>
-  <div class="content-section">
-    <div class="section-label">Peripherals Implemented</div>
-    <p class="content-p">Describe the drivers you wrote here — GPIO, UART, SPI, I2C, timers, ADC, or others. For each, describe what functionality you implemented (e.g. interrupt-driven vs polling, DMA support) and any edge cases you handled.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
-  </div>
-  <div class="content-section">
-    <div class="section-label">Key Learnings</div>
-    <p class="content-p">Describe what you learned from the project — clock configuration, the relationship between the reference manual and the register map, debugging techniques at the register level, and how this compares to using a HAL.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
+<div class="content-section">
+  <div class="section-label">Drivers Implemented</div>
+  <ul class="content-p" style="margin:0; padding-left:1.4rem; line-height:1.9;">
+    <li>Advanced clock control and peripheral clock distribution</li>
+    <li>Full GPIO pin control with alternate function remapping</li>
+    <li>External and timer-based interrupt initialization and handling</li>
+    <li>Comprehensive timer control, including:
+      <ul style="padding-left:1.2rem; margin-top:0.3rem;">
+        <li>Microsecond and millisecond delays (SysTick by default; any timer supported)</li>
+        <li>Compare operations for event triggering</li>
+        <li>PWM output generation</li>
+      </ul>
+    </li>
+    <li>ADC configuration and reading</li>
+    <li>DAC output</li>
+    <li>UART communication at 9600 baud with a receive interrupt</li>
+  </ul>
+</div>
+
+<div class="content-section">
+  <div class="section-label">Source Code</div>
+  
+  <div style="display:flex; flex-wrap:wrap; gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:1px;">
+    <button onclick="loadFile('resources/STM32-Drivers-main/adc.c', this)" class="file-btn">adc.c</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/adc.h', this)" class="file-btn">adc.h</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/clock.c', this)" class="file-btn">clock.c</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/clock.h', this)" class="file-btn">clock.h</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/dac.c', this)" class="file-btn">dac.c</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/dac.h', this)" class="file-btn">dac.h</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/gpio.c', this)" class="file-btn">gpio.c</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/gpio.h', this)" class="file-btn">gpio.h</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/timer.c', this)" class="file-btn">timer.c</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/timer.h', this)" class="file-btn">timer.h</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/uart.c', this)" class="file-btn">uart.c</button>
+    <button onclick="loadFile('resources/STM32-Drivers-main/uart.h', this)" class="file-btn">uart.h</button>
   </div>
 
-  <div class="content-section">
-    <div class="section-label">Tools &amp; Methods</div>
-    <div class="tags-row"><span class="tag">STM32F4</span> <span class="tag">Bare Metal</span> <span class="tag">C</span> <span class="tag">Embedded Systems</span> <span class="tag">UART</span> <span class="tag">SPI</span> <span class="tag">I2C</span> <span class="tag">DMA</span></div>
+  <div id="code-container" style="background:var(--faint);border:1px solid var(--border);overflow:auto;max-height:600px;">
+    <pre id="code-display" style="font-family:var(--mono);font-size:0.72rem;color:var(--muted);padding:1.5rem;margin:0;white-space:pre;line-height:1.6;">Select a file above to view its source code.</pre>
   </div>
+</div>
+
+<div class="content-section">
+  <div class="section-label">Tools &amp; Methods</div>
+  <div class="tags-row">
+    <span class="tag">STM32F3</span>
+    <span class="tag">Bare Metal</span>
+    <span class="tag">C</span>
+    <span class="tag">CMSIS</span>
+    <span class="tag">Arm Keil µVision5</span>
+    <span class="tag">ST-LINK</span>
+    <span class="tag">GPIO</span>
+    <span class="tag">UART</span>
+    <span class="tag">ADC</span>
+    <span class="tag">DAC</span>
+    <span class="tag">PWM</span>
+    <span class="tag">Timers</span>
+  </div>
+</div>
 
   <div class="page-footer">
     <span class="footer-text">Xavier Onwu · STM32 Bare Metal Drivers</span>
@@ -455,5 +510,25 @@
   </div>
 
 </div>
+
+<script>
+function loadFile(path, btn) {
+  document.querySelectorAll('.file-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  fetch(path)
+    .then(r => r.text())
+    .then(code => {
+      document.getElementById('code-display').textContent = code;
+    })
+    .catch(() => {
+      document.getElementById('code-display').textContent = 'Could not load file.';
+    });
+}
+window.addEventListener('load', () => {
+  const defaultBtn = document.querySelector('.file-btn:nth-child(1)');
+  loadFile('resources/STM32-Drivers-main/adc.c', defaultBtn);
+});
+</script>
 </body>
 </html>
