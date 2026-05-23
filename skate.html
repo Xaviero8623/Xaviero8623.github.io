@@ -409,55 +409,110 @@
     <h1 class="hero-title">Generative Design <em>Skateboard Trucks</em></h1>
     <p class="hero-summary">A generative design case study producing a longboard hanger that doubles as a motor mount, optimized for structural performance and minimal mass.</p>
       <div class="stats-bar">
-      <div class="stat"><div class="stat-value">Tool</div><div class="stat-label">Fusion 360</div></div>
+      <div class="stat"><div class="stat-value">Software</div><div class="stat-label">Fusion 360</div></div>
       <div class="stat"><div class="stat-value">Method</div><div class="stat-label">Generative</div></div>
-      <div class="stat"><div class="stat-value">Reduction</div><div class="stat-label">TBD</div></div>
+      <div class="stat"><div class="stat-value">Class</div><div class="stat-label">Additive Manufacturing</div></div>
+       <div class="stat"><div class="stat-value">Manufacturing Method</div><div class="stat-label">SLS Printing</div></div>
   </div>
   </div>
 
-  <div class="content-section" style="padding-top:3rem;padding-bottom:0;border-bottom:none;">
-    <div class="img-block img-block-tall">
-      <div class="img-block-label">Hero image — replace with &lt;img src="..."&gt;</div>
-    </div>
-  </div>
-
-  <div class="content-section" style="padding-top:2rem;padding-bottom:0;border-bottom:none;">
-    <div class="embed-block">
-      <div class="embed-placeholder">
-        <div class="embed-placeholder-border"></div>
-        <div class="embed-placeholder-title">Interactive embed</div>
-        <div class="embed-placeholder-hint">Paste your Fusion 360 embed code here to show an interactive 3D model of the generative design result.</div>
-        <div class="embed-placeholder-border"></div>
-      </div>
-      <!-- Paste your iframe here, e.g. Altium 365, Sketchfab, or Fusion 360 -->
-    </div>
-  </div>
-
-  <div class="content-section">
+<div class="content-section">
     <div class="section-label">Overview</div>
-    <p class="content-p">Applied Fusion 360's generative design workflow to redesign a longboard hanger as a combined structural and motor-mount component. The goal was to reduce mass while maintaining the load paths required for both riding forces and motor torque reaction.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
+    <p class="content-p">Generative design is an advanced algorithm-driven design approach that enables engineers to explore multiple solutions based on predefined constraints related to geometries, materials, manufacturing methods, structural loads, and volume. The engineer specifies preserved geometries, obstacle areas, materials, and structural loads, and the software iterates through designs until all criteria are met — producing a model that is mathematically optimal for the defined constraints.</p>
+    <p class="content-p">The geometries produced by the algorithm rarely showcase the symmetry seen in human-derived designs. Instead, the algorithm develops complex lattice structures and organic shapes that require powder-bed printing to manufacture, as this method places no limitations on geometry or orientation. This approach is used across aerospace and automotive industries — a notable example being Airbus' bionic partition for the A320, which came in 45% lighter than conventional designs and is projected to save up to 465 metric tonnes of CO₂ emissions per year.</p>
+    <p class="content-p">The final project for this course was to design the hanger of Paris V2 trucks for a longboard that also doubles as a motor mount for a Flipsky motor. Constraints were set to minimize weight while achieving a safety factor of 2 on all loads, with obstacle geometries applied to preserve clearance for wheels, the motor, and the base plate.</p>
   </div>
+
   <div class="content-section">
     <div class="section-label">Design Setup</div>
-    <p class="content-p">Describe your preserve and obstacle geometry setup, load cases (rider weight, cornering forces, motor torque), material selection, and manufacturing method constraints you applied (e.g. additive, milling).</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    <p class="content-p">The following structural loads were applied to the design:</p>
+
+    <table style="width:100%; border-collapse:collapse; margin-top:1rem; margin-bottom:1rem; font-family:var(--mono); font-size:0.7rem;">
+      <thead>
+        <tr style="border-bottom:1px solid var(--accent-dim);">
+          <th style="text-align:left; padding:0.6rem 1rem 0.6rem 0; color:var(--accent-dim); letter-spacing:0.1em; font-weight:400;">Load</th>
+          <th style="text-align:left; padding:0.6rem 1rem; color:var(--accent-dim); letter-spacing:0.1em; font-weight:400;">Magnitude</th>
+          <th style="text-align:left; padding:0.6rem 0 0.6rem 1rem; color:var(--accent-dim); letter-spacing:0.1em; font-weight:400;">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--faint);">
+          <td style="padding:0.6rem 1rem 0.6rem 0; color:var(--text);">Rider Weight</td>
+          <td style="padding:0.6rem 1rem; color:var(--muted);">2000 N</td>
+          <td style="padding:0.6rem 0 0.6rem 1rem; color:var(--muted);">Bearing load on axles pointing down — braces hanger to support rider</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--faint);">
+          <td style="padding:0.6rem 1rem 0.6rem 0; color:var(--text);">Carving / Turning</td>
+          <td style="padding:0.6rem 1rem; color:var(--muted);">600 N</td>
+          <td style="padding:0.6rem 0 0.6rem 1rem; color:var(--muted);">Lateral force pointing into axle to account for turning loads</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--faint);">
+          <td style="padding:0.6rem 1rem 0.6rem 0; color:var(--text);">Motor Weight</td>
+          <td style="padding:0.6rem 1rem; color:var(--muted);">15 N</td>
+          <td style="padding:0.6rem 0 0.6rem 1rem; color:var(--muted);">Remote force positioned over motor, applied to motor screw support holes</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--faint);">
+          <td style="padding:0.6rem 1rem 0.6rem 0; color:var(--text);">Belt Tension</td>
+          <td style="padding:0.6rem 1rem; color:var(--muted);">80 N</td>
+          <td style="padding:0.6rem 0 0.6rem 1rem; color:var(--muted);">Applied to motor rod mount — accounts for belt tension and tugging force</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem 1rem 0.6rem 0; color:var(--text);">Motor Torque</td>
+          <td style="padding:0.6rem 1rem; color:var(--muted);">357 N·m</td>
+          <td style="padding:0.6rem 0 0.6rem 1rem; color:var(--muted);">Applied to motor mount as a moment — accounts for motor reaction torque</td>
+        </tr>
+      </tbody>
+    </table>
+
+   <div class="img-grid-2" style="margin-top:1.5rem;">
+      <div class="img-block img-block-medium">
+        <img src="images/Steel.png" alt="Steel generative design output" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="img-block img-block-medium">
+        <img src="images/aluminum.png" alt="Aluminum generative design output" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+    </div>
     </div>
   </div>
+
+  
+<div class="content-section" style="padding-top:2rem;padding-bottom:2rem;border-bottom:none;">
+    <div class="embed-block">
+      <iframe src="https://vanderbilt643.autodesk360.com/shares/public/SH90d2dQT28d5b602811abf7ca4f397cf72d?mode=embed" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0" style="width:100%;height:100%;border:none;"></iframe>
+    </div>
+  </div>
+
   <div class="content-section">
     <div class="section-label">Outcome</div>
-    <p class="content-p">Compare the generative result to a conventional hanger design — mass reduction, stress distribution, and whether the generated geometry was manufacturable. Include whether you 3D printed or machined a prototype.</p>
+    <p class="content-p">ALSi10Mg possesses weaker mechanical properties than 17-4 PH stainless steel, resulting in a bloated design that appears blob-like. While obstacle geometries were set to maintain clearance around the pivot cup to ensure turning was possible, the aluminum result was heavy and aesthetically unappealing. The 17-4 PH steel design was significantly less bloated, provided better clearance for turning, and was more functionally viable overall.</p>
+    <p class="content-p">Generative design proved useful in ensuring that mechanical load tolerances and safety factors were properly met, but it was difficult to guide the algorithm toward a geometry that worked functionally — requiring a large number of obstacle geometries to arrive at a feasible result. The approach would be most valuable in applications aimed at reducing part count and design complexity rather than producing drop-in replacements for existing components.</p>
+
     <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+      <img src="images/skateboard.jpeg" alt="Trucks on skateboard" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div class="img-grid-2" style="margin-top:1px;">
+      <div class="img-block img-block-medium">
+        <img src="images/turn.gif" alt="Turning demonstration" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="img-block img-block-medium">
+        <img src="images/spin.GIF" alt="Motor spinning" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
     </div>
   </div>
 
   <div class="content-section">
     <div class="section-label">Tools &amp; Methods</div>
-    <div class="tags-row"><span class="tag">Fusion 360</span> <span class="tag">Generative Design</span> <span class="tag">FEA</span> <span class="tag">3D Printing</span> <span class="tag">CAD</span> <span class="tag">Structural Optimization</span></div>
+    <div class="tags-row">
+      <span class="tag">Fusion 360</span>
+      <span class="tag">Generative Design</span>
+      <span class="tag">FEA</span>
+      <span class="tag">3D Printing</span>
+      <span class="tag">CAD</span>
+      <span class="tag">Structural Optimization</span>
+      <span class="tag">ALSi10Mg</span>
+      <span class="tag">17-4 PH Steel</span>
+      <span class="tag">Powder Bed Fusion</span>
+    </div>
   </div>
 
   <div class="page-footer">
