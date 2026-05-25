@@ -405,61 +405,51 @@
   </nav>
 
   <div class="hero">
-    <div class="hero-eyebrow">Independent Study · 2025</div>
-    <h1 class="hero-title">Motor Controller <em>Independent Study</em></h1>
-    <p class="hero-summary">An independent study exploring the design, simulation, and hardware implementation of motor controllers for brushless and brushed DC motors.</p>
+    <div class="hero-eyebrow">Independent Study · ME 8353 · Fall 2024</div>
+    <h1 class="hero-title">Design of Electromechanical Systems</h1>
+    <p class="hero-summary">An independent study focused on hardware assembly, driver development, and precise motor control using a dsPIC microcontroller.</p>
       <div class="stats-bar">
-      <div class="stat"><div class="stat-value">Study</div><div class="stat-label">Independent</div></div>
-      <div class="stat"><div class="stat-value">Year</div><div class="stat-label">2025</div></div>
-      <div class="stat"><div class="stat-value">Status</div><div class="stat-label">Ongoing</div></div>
+      <div class="stat"><div class="stat-value">Hardware</div><div class="stat-label">dsPIC MCU</div></div>
+      <div class="stat"><div class="stat-value">Software</div><div class="stat-label">MPLAB & MATLAB</div></div>
+      <div class="stat"><div class="stat-value">Control</div><div class="stat-label">PID & PWM</div></div>
+      <div class="stat"><div class="stat-value">Timeline</div><div class="stat-label">Aug - Dec 2024</div></div>
   </div>
   </div>
 
-  <div class="content-section" style="padding-top:3rem;padding-bottom:0;border-bottom:none;">
-    <div class="img-block img-block-tall">
-      <div class="img-block-label">Hero image — replace with &lt;img src="..."&gt;</div>
-    </div>
-  </div>
-
-  <div class="content-section" style="padding-top:2rem;padding-bottom:0;border-bottom:none;">
-    <div class="embed-block">
-      <div class="embed-placeholder">
-        <div class="embed-placeholder-border"></div>
-        <div class="embed-placeholder-title">Interactive embed</div>
-        <div class="embed-placeholder-hint">Paste your Altium 365 or Sketchfab embed code here to show an interactive 3D model of the motor controller PCB.</div>
-        <div class="embed-placeholder-border"></div>
-      </div>
-      <!-- Paste your iframe here, e.g. Altium 365, Sketchfab, or Fusion 360 -->
-    </div>
-  </div>
-
-  <div class="content-section">
+<div class="content-section">
     <div class="section-label">Overview</div>
-    <p class="content-p">Describe the scope of your independent study here — what motivated it, what motor types you focused on (BLDC, brushed DC, stepper), and what the end deliverable was (a working controller PCB, a simulation model, or both).</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
+    <p class="content-p">During the Fall 2024 semester, I undertook an independent study in the Design of Electromechanical Systems (ME 8353). The core objective of this study was to bridge hardware setup with software development to achieve precise control over electromechanical components. The project began at the hardware level, where I assembled a custom PCB breakout board designed specifically for a dsPIC microcontroller.</p>
   </div>
-  <div class="content-section">
-    <div class="section-label">Theory & Design</div>
-    <p class="content-p">Describe the control theory you explored — PWM generation, H-bridge or 3-phase inverter topology, current sensing, and closed-loop speed or position control. Include any references or resources that shaped your approach.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+
+  <div class="img-block" style="margin-top:1.5rem; height:auto; aspect-ratio:16/9;">
+      <img src="images/motor_controller.jpg" alt="Motor controller" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
+  <div class="content-section">
+    <div class="section-label">Development & Control</div>
+    <p class="content-p">Using the assembled breakout board as a foundation, I explored the methods and tools required for precise motor control. This involved integrating encoders to accurately read motor speed and direction, implementing pulse-width modulation (PWM), and utilizing an H-bridge circuit.</p>
+    <p class="content-p">On the software side, I developed custom drivers in MPLAB that utilized the H-bridge circuit to manage both brushed and brushless motors. To advance the system's precision, I also developed and tuned a PID controller, enabling strict and reliable servo control of a brushed motor.</p>
+
+    <div class="content-section">
+    <div class="section-label">Analysis & Debugging</div>
+    <p class="content-p">To ensure the system operated as intended, continuous testing and validation were required. I utilized MATLAB and Simulink to ingest and analyze real-time motor data. This analysis workflow was critical for debugging the MPLAB drivers, verifying the efficiency of the control logic, and confirming the stability of the entire electromechanical system.</p>
   </div>
-  <div class="content-section">
-    <div class="section-label">Implementation & Results</div>
-    <p class="content-p">Describe your hardware implementation — the PCB you designed, the firmware you wrote, and how the system performed. Include any measurements, scope captures, or performance metrics.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
   </div>
 
   <div class="content-section">
-    <div class="section-label">Tools &amp; Methods</div>
-    <div class="tags-row"><span class="tag">Motor Control</span> <span class="tag">PCB Design</span> <span class="tag">Embedded C</span> <span class="tag">Control Theory</span> <span class="tag">BLDC</span> <span class="tag">H-Bridge</span> <span class="tag">PWM</span></div>
+    <div class="section-label">Tools & Methods</div>
+    <div class="tags-row">
+      <span class="tag">dsPIC Microcontroller</span>
+      <span class="tag">MPLAB</span>
+      <span class="tag">MATLAB & Simulink</span>
+      <span class="tag">PID Controller</span>
+      <span class="tag">PWM</span>
+      <span class="tag">H-Bridge Circuit</span>
+      <span class="tag">Motor Encoders</span>
+      <span class="tag">PCB Assembly</span>
+    </div>
   </div>
 
+</div>
   <div class="page-footer">
     <span class="footer-text">Xavier Onwu · Motor Controller Independent Study</span>
     <a href="index.html" class="back-btn">← BACK TO RESUME</a>
