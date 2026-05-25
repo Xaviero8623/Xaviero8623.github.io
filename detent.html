@@ -410,54 +410,63 @@
     <p class="hero-summary">A class-based deep dive into top-down modeling methodology using a detent mechanism phone holder as the design subject.</p>
       <div class="stats-bar">
       <div class="stat"><div class="stat-value">Tool</div><div class="stat-label">Fusion 360</div></div>
-      <div class="stat"><div class="stat-value">Method</div><div class="stat-label">Top-Down</div></div>
-      <div class="stat"><div class="stat-value">Assembly</div><div class="stat-label">Multi-part</div></div>
+      <div class="stat"><div class="stat-value">Method</div><div class="stat-label">Top-Down Modeling</div></div>
+      <div class="stat"><div class="stat-value">Class</div><div class="stat-label">Additive Manufacturing</div></div>
+      <div class="stat"><div class="stat-value">Fabrication</div><div class="stat-label">3D-Printing</div></div>
   </div>
   </div>
 
-  <div class="content-section" style="padding-top:3rem;padding-bottom:0;border-bottom:none;">
-    <div class="img-block img-block-tall">
-      <div class="img-block-label">Hero image — replace with &lt;img src="..."&gt;</div>
-    </div>
-  </div>
-
-  <div class="content-section" style="padding-top:2rem;padding-bottom:0;border-bottom:none;">
-    <div class="embed-block">
-      <div class="embed-placeholder">
-        <div class="embed-placeholder-border"></div>
-        <div class="embed-placeholder-title">Interactive embed</div>
-        <div class="embed-placeholder-hint">Paste your Fusion 360 embed code here to show an interactive 3D model of the phone holder assembly.</div>
-        <div class="embed-placeholder-border"></div>
-      </div>
-      <!-- Paste your iframe here, e.g. Altium 365, Sketchfab, or Fusion 360 -->
-    </div>
-  </div>
-
-  <div class="content-section">
+<div class="content-section">
     <div class="section-label">Overview</div>
-    <p class="content-p">Designed a phone holder incorporating a detent mechanism as a structured exercise in top-down modeling. The project focused on establishing a master sketch and skeleton model before building out individual components driven by shared references.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
+    <p class="content-p">Top-down modeling is a design methodology where the assembly is defined first and individual components are worked down to from there. This approach allows the designer to create a framework that dictates the shape, size, and position of every part within the context of the whole — rather than building parts in isolation and struggling to ensure proper fit and compatibility.</p>
+    <p class="content-p">The goal of this project was to design a phone holder that mounts to a bike handlebar. Top-down modeling was critical here given the number of components and moving parts involved, which would have been difficult to properly size and fit if designed independently.</p>
+  </div>
+
+  <div class="content-section" style="padding-top:2rem;padding-bottom:2rem;border-bottom:none;">
+    <div class="embed-block">
+  <iframe src="https://vanderbilt643.autodesk360.com/shares/public/SH90d2dQT28d5b602811b7dab559fbd10b2e?mode=embed" width="640" 
+  height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+</div>
+  </div>
+
+
+  <div class="content-section">
+    <div class="section-label">Design</div>
+    <p class="content-p">The holder mounts to handlebars of 23–25mm diameter using a screw-based clamping mechanism, chosen to ensure the user can apply adequate friction between the handlebar and clamp for a secure hold. Above the clamp is a rotating pivot that allows the user to adjust the vertical angle of the phone — convenient for compensating for glare, height differences, and viewing preferences. This mechanism is secured by the friction between a screw, supporting components, and a nut, which allows firm angle control while preventing the phone holder from falling during rougher rides.</p>
+    <p class="content-p">The main phone support platform features a lip along the bottom for added structural support, reducing the load on the horizontal clamps. The platform is designed so that the clamps do not overlap with the volume, power, or ringer buttons of the phone. The phone-clamping mechanism is spring-actuated, using screws to compress a spring against each inner edge to generate clamping force. A horizontal bar acts as a rail to keep the mechanism stable, with a screw and nut at the end providing a horizontal travel limit. The mechanism is designed to fit the base and Pro models of the iPhone 13 lineup and newer, with bulky cases in mind.</p>
+    <p class="content-p">The detent mechanism enables full 360° horizontal rotation, allowing users to switch between portrait and landscape mode for content consumption. It features a 7mm ball bearing and corresponding spring that seats into a pocket where the base attaches to the support platform, clicking into predetermined slots to create a smooth but vibration-resistant user experience.</p>
+
+    <div class="img-block" style="margin-top:1.5rem; height:auto; aspect-ratio:16/9;">
+      <img src="images/Bike_Mount_Render.png" alt="Bike mount render" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+
+  <div class="content-section">
+    <div class="section-label">Manufacturing</div>
+    <p class="content-p">The design was filament printed in PLA, chosen for its suitability to rapid prototyping and iterative development. As a result of material swelling during the printing process, holes for heat-set inserts and screws required post-print expansion to achieve proper fit.</p>
+
+    <div class="img-grid-2" style="margin-top:1.5rem;">
+      <div class="img-block img-block-medium">
+        <img src="images/Phone_Holder_In_Action.jpeg" alt="Phone holder in action" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="img-block img-block-medium">
+        <img src="images/Horizontal_Profile.jpeg" alt="Horizontal profile" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
     </div>
   </div>
-  <div class="content-section">
-    <div class="section-label">Modeling Approach</div>
-    <p class="content-p">Describe your top-down workflow — how you structured the assembly, where shared parameters and references lived, and how changes to the master sketch propagated through the design. Note any challenges with in-context editing.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
-  </div>
-  <div class="content-section">
-    <div class="section-label">Outcome</div>
-    <p class="content-p">Describe the final design, how the detent mechanism functions, and whether you prototyped it. Include any observations about the top-down approach versus part-by-part modeling for mechanism design.</p>
-    <div class="img-block img-block-medium" style="margin-top:1.5rem;">
-      <div class="img-block-label">Image placeholder — replace with &lt;img src="..."&gt;</div>
-    </div>
   </div>
 
   <div class="content-section">
     <div class="section-label">Tools &amp; Methods</div>
-    <div class="tags-row"><span class="tag">Fusion 360</span> <span class="tag">Top-Down Modeling</span> <span class="tag">Mechanism Design</span> <span class="tag">3D Printing</span> <span class="tag">Assembly Modeling</span></div>
+    <div class="tags-row">
+      <span class="tag">Fusion 360</span>
+      <span class="tag">Top-Down Modeling</span>
+      <span class="tag">Mechanism Design</span>
+      <span class="tag">FDM Printing</span>
+      <span class="tag">PLA</span>
+      <span class="tag">Detent Mechanism</span>
+      <span class="tag">Spring Actuation</span>
+      <span class="tag">Heat-Set Inserts</span>
+    </div>
   </div>
 
   <div class="page-footer">
